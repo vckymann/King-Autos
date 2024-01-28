@@ -24,27 +24,22 @@ function hide () {
     menu_btn.classList.toggle(`is-active`);
 }
 
-
-
-
-
 function changecolor () {
 let header = document.querySelector(`header`);
 if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 500){
         header.style.backgroundColor = `black`;
         header.style.color = `gold`;
-            } else {
-                header.style.backgroundColor = `transparent`;
-            }
+    } else {
+        header.style.backgroundColor = `transparent`;
+    }
 }
-
 
 let scroll = window.onscroll = function () {
     changecolor();
 }
 
 
-
+//constructor function
 
 let car1 = new Cars(`../images/cars/ferrari.png`,`$300K /`,`Spider`,`Ferrari`,`2017`,`2/5`,`Yes`,`Auto`,`Diesel`);
 let car2 = new Cars(`../images/cars/bmw.png`,`$150K /`,`320`,`BMW`,`2013`,`4/5`,`Yes`,`Manual`,`Petrol`);
@@ -115,6 +110,8 @@ btn_6.on(`click`, ()=> {
 carDisplay(car6);
 });
 
+
+//fade in effect while scrolling
 window.addEventListener('scroll', () => {
     let reveals = document.querySelectorAll('.reveal');
     reveals.forEach((reveal) => {
