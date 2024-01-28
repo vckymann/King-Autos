@@ -1,0 +1,226 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../src/output.css">
+    <link rel="stylesheet" href="../src/custom.css">
+</head>
+<body>
+    <main>
+        <section class="img1 flex justify-center">
+            <header class="max-w-[133rem]">
+                <div class="header pt-4">
+                    <div>
+                        <img class="fill-white" src="../images/icons8-crown-50.png" alt="">
+                    </div> 
+                    </div>
+                    <button class="hamburger">
+                        <div class="bar"></div>
+                    </button>
+                
+            </header>
+            <div class="mob-page">
+                <a onclick="hide();" class="mob-links" href="#home">Home</a>
+                <a onclick="hide()" class="mob-links" href="#about">About</a>
+                <a onclick="hide()" class="mob-links" href="#projects">Projects</a>
+                <a onclick="hide()" class="mob-links" href="#contact">Contact</a>
+            </div>
+            <div class="mx-auto max-w-[133rem] h-screen flex justify-center items-center">
+                <div class="flex flex-col items-center gap-6 sm:gap-4 text-center">
+                    <h2 class="font-poppins font-bold text-4xl sm:text-7xl text-[#ffd71b]">LET'S GET YOU ON THE ROAD!</h2>
+                    <p class="text-white text-[1.3rem] sm:text-[1.5rem]">King Autos Provide Cars of Famous Luxurious Brands All Across Canada.</p>
+                    <a href="#down"><button class="bg-[#ffd71b] sm:mt-8 hover:scale-105 transition-all font-poppins font-extrabold text-2xl py-[0.5rem] px-10 sm:text-3xl sm:py-3 rounded-sm">Buy Now</button></a>
+                </div>
+            </div>
+        </section>
+        <section class="flex justify-center">
+                <div class="reveal w-[133rem] max-w-[133rem] py-0 px-3 sm:px-6 lg:px-10 font-poppins relative pt-10">
+                    <h2 id="down" class="font-poppins text-[#ffd71b] font-extrabold text-4xl text-center pb-10 underline underline-offset-8 decoration-[#ffd71b]">BROWSE CARS</h2>
+                    <div class="info-card rounded pt-3 px-2 sm:ps-10 sm:pe-10 lg:pe-0">
+                        <p class="js-alert-msg"></p>
+                        <div class="form1 grid gap-y-9 gap-x-6 sm:grid-cols-2 sm:grid-rows-2 lg:grid-cols-2 lg:grid-rows-2">
+                            <div class="box">
+                                <p>
+                                    Select Your Car Type<span>*</span></p>
+                                    <select class="border-black js-carpicked not">
+                                        <option value="0">Select your car type</option>
+                                        <option value="Sedan">Sedan</option>
+                                        <option value="SUV">SUV</option>
+                                        <option value="Convertible">Convertible</option>
+                                        <option value="lamborghini">Lamborghini</option>
+                                        <option value="Coupe">Coupe</option>
+                                    </select>
+                                </div>
+                                <div class="box">
+                                    <p class="font-poppins">Car-Brand<span>*</span></p>
+                                    <select class="not js-p-location">
+                                        <option value="0">Select car Brand</option>
+                                        <option value="BMW">BMW</option>
+                                        <option value="Ferrari">Ferrari</option>
+                                        <option value="Audi">Audi</option>
+                                        <option value="Hellcat">Hellcat</option>
+                                    </select>
+                                </div>
+                                <div class="box">
+                    <p><img class="calendar-svg" src="../images/small/Feather-core-calendar.svg" alt="">Car-Make (Min)<span>*</span></p>
+                    <select class="not js-p-location">
+                        <option value="0">Select car Make</option>
+                        <option value="2000">2000</option>
+                        <option value="2001">2001</option>
+                        <option value="2002">2002</option>
+                        <option value="2003">2003</option>
+                        <option value="2004">2004</option>
+                        <option value="2005">2005</option>
+                        <option value="2006">2006</option>
+                        <option value="2007">2007</option>
+                        <option value="2008">2008</option>
+                        <option value="2009">2009</option>
+                        <option value="2010">2010</option>
+                        <option value="2011">2011</option>
+                        <option value="2012">2012</option>
+                        <option value="2013">2013</option>
+                        <option value="2014">2014</option>
+                        <option value="2015">2015</option>
+                        <option value="2016">2016</option>
+                        <option value="2017">2017</option>
+                        <option value="2018">2018</option>
+                        <option value="2019">2019</option>
+                        <option value="2020">2020</option>
+                        <option value="2021">2021</option>
+                        <option value="2022">2022</option>
+                        <option value="2023">2023</option>
+                        <option value="2024">2024</option>
+                    </select>
+                </div>
+                <div class="box">
+                    <p><img class="calendar-svg" src="../images/small/Feather-core-calendar.svg" alt="">Car-Make (Max)<span>*</span></p>
+                    <select class="not js-p-location">
+                        <option value="0">Select car Make</option>
+                        <option value="2000">2000</option>
+                        <option value="2001">2001</option>
+                        <option value="2002">2002</option>
+                        <option value="2003">2003</option>
+                        <option value="2004">2004</option>
+                        <option value="2005">2005</option>
+                        <option value="2006">2006</option>
+                        <option value="2007">2007</option>
+                        <option value="2008">2008</option>
+                        <option value="2009">2009</option>
+                        <option value="2010">2010</option>
+                        <option value="2011">2011</option>
+                        <option value="2012">2012</option>
+                        <option value="2013">2013</option>
+                        <option value="2014">2014</option>
+                        <option value="2015">2015</option>
+                        <option value="2016">2016</option>
+                        <option value="2017">2017</option>
+                        <option value="2018">2018</option>
+                        <option value="2019">2019</option>
+                        <option value="2020">2020</option>
+                        <option value="2021">2021</option>
+                        <option value="2022">2022</option>
+                        <option value="2023">2023</option>
+                        <option value="2024">2024</option>
+                    </select>
+                </div>
+            </div>
+            <div class="box lg:pe-[3rem] pt-16 pb-10">
+                <button class="search-btn">Search</button>
+            </div>
+        </div>
+</div>
+</section>
+<section class="mt-10 flex justify-center">
+    <div class="reveal font-poppins w-[132rem] max-w-[133rem]">
+        <h2 class="font-poppins text-[#ffd71b] pt-12 font-extrabold text-4xl text-center pb-10 underline underline-offset-8 decoration-[#ffd71b]">WHY US</h2>
+        <div class="pt-12 xl:pt-80 2xl:pt-[25rem] img2 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-x-4 gap-y-4 text-[1.7rem] font-poppins font-bold text-black p-8">                                        
+            <div class="flex flex-col items-center pt-6 gap-y-6 text-center rounded bg-[#ffd71b] hover:-translate-y-3 duration-300 pb-4">
+                <img width="70" src="../images/small/icons8-quality-50.png" alt="">
+                <h2>Quality</h2>
+                <p class="text-xl font-medium max-w-72">We ensure the best quality through efficient production,strict safety adherence and a focus on customer satisfaction.</p>
+                    </div>
+                    <div class="flex flex-col items-center pt-6 gap-y-6 text-center bg-[#ffd71b] rounded pb-4  hover:-translate-y-3 duration-300">
+                        <img width="70" src="../images/small/icons8-exchange-80.png" alt="">
+                        <h2>Low Prices</h2>
+                        <p class="text-xl font-medium max-w-72">We deliver affordability by consistently providing competitive rates through strategic financial management, ensuring low prices.</p>
+                    </div>
+                    <div class="flex flex-col items-center pt-6 gap-y-6 text-center bg-[#ffd71b] rounded pb-4  hover:-translate-y-3 duration-300">
+                        <img width="70" src="../images/small/icons8-eye-50.png" alt="">
+                        <h2>Transparency</h2>
+                        <p class="text-xl font-medium max-w-72">Trust in our commitment to transparency, as we provide detailed vehicle histories, empowering you to make informed decisions with confidence.</p>
+                    </div>
+                    <div class="flex flex-col items-center pt-6 gap-y-6 text-center bg-[#ffd71b] rounded pb-4  hover:-translate-y-3 duration-300">
+                        <img width="70" src="../images/small/icons8-protect-50.png" alt="">
+                        <h2>Reliability</h2>
+                        <p class="text-xl font-medium max-w-72">Our commitment goes beyond selling cars,it's about delivering a dependable, trustworthy experience.Count on us for seamless approach.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="mt-10">
+            <div class="reveal pt-10">
+                <h2 class="font-poppins text-[#ffd71b] font-extrabold text-4xl text-center pb-10 underline underline-offset-8 decoration-[#ffd71b]">HOT DEALS!</h2>
+                <div class="pick-vehicles">
+                    <div class="car-names">
+                        <button class="js-btn-1">Ferrari</button>
+                        <button class="js-btn-2">BMW 320</button>
+                        <button class="js-btn-3">Koenigsegg</button>
+                        <button class="js-btn-4">Lamborghini</button>
+                        <button class="js-btn-5">Mercedes</button>
+                        <button class="js-btn-6">Mclaren</button>
+                    </div>
+                    <div class="pick-selection-cont">
+                    <div class="pick-selection">
+                            <img class="js-img" src="../images/cars/ferrari.png" alt="">
+                    </div>
+                        <div class="rent-table">
+                            <div class="rent-head">
+                                <span class="js-rent">$300k /</span><span>Price</span>
+                            </div>
+                            <div>
+                                <span class="spec">Model</span><span class="spec-ans js-model">Spider</span>
+                            </div>
+                            <div>
+                                <span class="spec">Mark</span><span class="spec-ans js-mark">Ferrari</span>
+                            </div>
+                            <div>
+                                <span class="spec">Year</span><span class="spec-ans js-year">2017</span>
+                            </div>
+                            <div>
+                                <span class="spec">Doors</span><span class="spec-ans js-doors">2/5</span>
+                            </div>
+                            <div>
+                                <span class="spec">AC</span><span class="spec-ans">Yes</span>
+                            </div>
+                            <div>
+                                <span class="spec">Transmission</span><span class="spec-ans js-transmission">Auto</span>
+                            </div>
+                            <div>
+                                <span class="spec">Fuel</span><span class="spec-ans js-fuel">Diesel</span>
+                            </div>
+                            <div class="tbl-reserve-btn">Reserve Now</div>
+                        </div>
+                </div>
+            </div>
+            </div>
+        </section>
+        <section>
+            <div class="reveal flex justify-center items-center mt-40">
+                <a class="sell-btn bg-[#ffd71b] hover:opacity-50 font-poppins font-bold text-[1.3rem] text-black px-3 py-2 border-black" href="sell.html">Sell Your Car ➡️</a>    
+            </div>
+        </section>
+        <section>
+
+        </section>
+    </main>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="../scripts/main.js"></script>
+</body>
+</html>
+
+
+
+
+
+    

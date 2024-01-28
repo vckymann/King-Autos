@@ -1,0 +1,415 @@
+:root {
+    --color-primary:#ffd71b;
+    --color-secondary:white;
+}
+html {
+    scroll-behavior: smooth!important;
+}
+body {
+    margin: 0;
+    padding: 0;
+    background-color: black;
+}
+::-webkit-scrollbar {
+    display: none;
+}
+.img1 {
+    background: linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.6)),url(../images/img2.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-y:center;
+    background-position-x: center;
+}
+@media (min-width:1280px) {
+    .img2 {
+        background: linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.6)),url(../images/img3.jpg);
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position-y:bottom;
+        background-position-x: center;
+    }        
+}
+
+header {
+    position: fixed;
+    width: 100%;
+    background-color:transparent;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 20;
+}
+@media (min-width:900px) {
+    
+    .h:hover,.a:hover,.p:hover,.c:hover {
+        text-decoration: underline;
+        text-underline-offset: 10px;
+    }
+
+    .header-btn:hover {
+        border-radius: 5px;
+    }
+    .animate {
+        transition: transform 700ms;
+    }
+    .animate:hover {
+        transform: translateY(-1rem);
+        cursor: pointer;
+    }
+   
+}
+.header {
+    padding-bottom: 1.5rem;
+    padding-top: 1.5rem;
+    padding-left: 1rem;
+}
+.hdr-btn-cont {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    color: var(--color-secondary);
+    gap: 30px;
+}
+
+.hamburger {
+    position: relative;
+    width: 55px;
+    display: block;
+    cursor:pointer;
+    height: 35px;
+    outline: none;
+    border: none;
+    background: none;
+    appearance: none;
+    margin:1.5rem 1.2rem;
+    display: flex;
+    gap: 0;
+    flex-direction: column;
+    align-items: end;
+    
+}
+
+
+.bar,.hamburger::after,.hamburger::before {
+    width: 100%;
+    display: block;
+    content: "";
+    height: 3px;
+    margin: 4px 0px;
+    transition: 0.2s;
+    border-radius: 4px;
+    background-color:var(--color-secondary);
+}
+.hamburger::after {
+    width: 30px;
+}
+
+.hamburger.is-active::after {
+    transform: rotate(45deg) translate(-8px,-4px);
+    width: 100%;
+}
+
+.hamburger.is-active:before {
+    transform: rotate(-45deg) translate(-8px,5px);
+}
+
+.hamburger.is-active .bar{
+    opacity: 0;
+}
+
+.mob-page {
+    display: block;
+    background:black;
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    left: 100%;
+    top: 0;
+    transition: 0.3s;
+}
+
+.mob-page.is-active {
+    left: 0;
+    top: 0;
+}
+
+
+.mob-page {
+    display: flex;
+    gap: 2.3rem;
+    justify-content:center;
+    flex-direction: column;
+    align-items: center;
+    z-index: 10!important;
+}
+
+.mob-links {
+    margin-top: 1.4rem;
+    color: var(--color-secondary);
+    font-size: 3rem;
+    text-decoration: none;
+}
+
+
+.info-card {
+    box-shadow: 0px 0px 8px var(--color-primary);
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+}
+
+.box span {
+    color: var(--color-primary);
+    font-size: 1.8rem;
+}
+
+.box p {
+    font-weight: bold;
+    font-size: 1rem;
+    margin-bottom: 0.8rem;
+    color: var(--color-secondary);
+}
+.box select {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    font-size: 1.1rem;
+    color: white;
+    border: 2px solid var(--color-primary);
+    border-radius: 2px;
+    outline: none;
+    background-color: black;
+    cursor: pointer;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    margin-top: 5px;
+    margin-right: 5px;
+    cursor: pointer;
+    background-color: #ffd71b;
+}
+
+.box button {
+    font-size: 1.3rem;
+    font-family: poppins;
+    background-color:var(--color-primary);
+    border: 2px solid var(--color-primary);
+    width: 100%;
+    color: black;
+    border-radius: 2px;
+    padding:0.7rem 0;
+    font-weight: bold;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.box button:active {
+    color: black;
+    cursor: pointer;
+    scale:1.02;
+    opacity: 0.2;
+}
+
+
+.box img {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    object-fit:cover;
+    margin-right: 10px;
+}
+.box p .car-svg {
+    display: inline-block;
+    width: 40px;
+     height: 40px;
+    padding-top: 25px;
+    margin-right: 10px;
+}
+.box p .calendar-svg {
+    display: inline-block;
+    width: 25px;
+    height: 24px;
+    padding-top: 1px;
+    margin-right: 10px!important;
+}
+
+@media (min-width:640px) {
+    .box button {
+        padding: 0.6rem 0;
+    }
+}
+
+@media (min-width:1000px) {
+    .box button {
+        height: 55%;
+        width: 100%;
+    }
+    .box input {
+        width: 92%;
+    }
+    .box select {
+        width: 92%;
+    }
+
+}
+
+
+
+
+.pick-vehicles {
+    display: flex;
+    flex-direction:column;
+    margin-top: 5rem;
+    gap: 0px!important;
+}
+.pick-selection {
+    max-width: 50rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+}
+.pick-selection img {
+    width: 90%;
+}
+.pick-selection-cont {
+    gap: 1rem;
+    display: flex;
+    flex-direction: column;
+    padding: 0 0.7rem;
+    
+}
+.car-names {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    padding: 0 0.7rem;
+}
+.car-names button {
+    padding: 1rem 0;
+    padding-left: 1.3rem;
+    width: 100%;
+    border: none;
+    font-size: 1.3rem;
+    font-family: poppins;
+    font-weight: bold;
+    text-align: start;
+    background-color: var(--color-primary);
+    color: black;
+}
+.car-names button:hover {
+    background-color: rgb(178, 167, 167);
+    transition: all 0.15s;
+    cursor: pointer;
+}
+
+.rent-table {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+.rent-head {
+    background-color: var(--color-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.rent-head span:first-child {
+    font-size: 1.8rem;
+    font-family: poppins;
+    font-weight: bold;
+}
+.rent-head span:last-child {
+    font-size: 1.3rem;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-left: 0.5rem;
+    font-weight: 540;
+}
+.rent-table div:not(.rent-head) {
+    display: flex;
+    border: 1.5px solid var(--color-primary);
+    justify-content: center;
+    align-items: center;
+}
+.spec-cont {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.spec {
+    text-align: center;
+    font-size: 1.3rem;
+    border-right: 2px solid var(--color-primary);
+    width: 50%;
+    padding: 0.5rem 2rem 0.5rem 0.5rem;
+    color: white;
+}
+.spec-ans {
+    width: 1.5rem;
+    font-size: 1.3rem;
+    width:50%;
+    color: white;
+    padding: 0.5rem 2rem 0.5rem 2rem;
+}
+.tbl-reserve-btn {
+    background-color:var(--color-primary);
+    color: black;
+    margin-top: 1rem;
+    padding: 0.5rem 0;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+@media (min-width:700px) {
+  .pick-vehicles {
+    gap: 3rem!important;
+  }
+  .pick-selection-cont {
+    flex-direction: row!important;
+  }
+  .pick-selection img {
+    width: 100%;
+  }
+}
+@media (min-width:1040px) {
+    .pick-vehicles {
+        flex-direction: row;
+        justify-content: center;
+        gap: 0!important;
+    }
+    .car-names {
+        width:19rem;
+    }
+    .pick-selection-cont {
+        gap: 0px!important;
+    }
+    .pick-selection {
+        margin-top: 0;
+    }
+}
+@media (max-width:700px) {
+    .pick-selection-cont {
+        align-items: center;
+    }
+}
+
+/* pop up effect */
+.reveal {
+    position: relative;
+    transform: translateY(40px);
+    opacity: 0;
+    transition: all 1s ease;
+}
+.reveal.active {
+    transform: translateY(0px);
+    opacity: 1;
+}
+
+/* testimonials */
+
+

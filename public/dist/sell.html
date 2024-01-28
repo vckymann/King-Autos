@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../src/output.css">
+    <style>
+        ::-webkit-scrollbar {
+            display: none;
+        }
+        body {
+            background: linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.6)),url(../images/form-background.jpg);
+            background-position: center;
+            background-size: cover;
+        }
+    </style>
+</head>
+<body class="font-poppins p-2">
+    <div class="flex flex-col lg:flex-row lg:justify-center gap-x-4 mt-10 mb-10">
+        <form class="bg-black border-4 border-[#ffd71b] font-semibold p-8 flex flex-col justify-start" method="post" action="/submit" enctype="multipart/form-data">
+            <div class="flex flex-col gap-y-4">
+            <h2 class="font-bold text-xl">PERSONAL INFORMATION</h2>
+            <div class="border-[#ffd71b] border p-3 py-5 grid gap-y-8 sm:grid-cols-2 sm:grid-rows-2 sm:gap-x-5 text-[#ffd71b]">
+                <label for="fname">First Name (Required)<input name="fname" placeholder="  First Name" class="text-black ps-1 py-1 mt-2 w-[100%]" id="fname" type="text"></label>
+                <label for="lname">Last Name (Required) <input name="lname" placeholder="  Last Name" class="text-black ps-1 py-1 mt-2 w-[100%]" id="lname" type="text"></label>
+                <label for="email">Email (Required)     <input name="email" placeholder="  Email Address" class="text-black ps-1 py-1 mt-2 w-[100%]" id="email" type="text"></label>
+                <label for="number">Ph-Number (Required)<input name="number" placeholder="  Phone Number" class="text-black ps-1 py-1 mt-2 w-[100%]"  id="number" type="text"></label>
+            </div>
+            <h2 class="font-bold text-xl">VEHICLE INFORMATION</h2>
+            <div class="border-[#ffd71b] border p-3 py-5 grid gap-y-8 sm:grid-cols-2 sm:grid-rows-2 sm:gap-x-5 text-[#ffd71b]">
+                <label for="year">Year (Required)<input placeholder="  Year"  class="text-black ps-1 py-1 mt-2 w-[100%]"  name="year"  id="year" type="text"></label>
+                <label for="make">Make (Required)<input placeholder="  Make"  class="text-black ps-1 py-1 mt-2 w-[100%]"  name="make"  id="make" type="text"></label>
+                <label for="model">Model (Required)<input placeholder="  Car-Model" class="text-black ps-1 py-1 mt-2 w-[100%]" name="model"   id="mode" type="text"></label>
+                <label for="vin">vin<input placeholder="  Vin" class="text-black ps-1 py-1 mt-2 w-[100%]"  id="vin"  name="vin"  type="text"></label>
+            </div>
+            <h2 class="font-bold text-xl">EXTERIOR AND CAR INTERIOR IMAGES</h2>
+            <div class="border-[#ffd71b] border px-10 lg:px-4 py-5 grid gap-y-8 sm:grid-cols-2 sm:grid-rows-2">
+                <label for="img1"><input id="img1" class="ps-1 py-1 mt-2 w-[100%] text-[#ffd71b]" name="img1" type="file"></label>
+                <label for="img2"><input id="img2" class="ps-1 py-1 mt-2 w-[100%] text-[#ffd71b]" name="img2" type="file"></label>
+                <label for="img3"><input id="img3" class="ps-1 py-1 mt-2 w-[100%] text-[#ffd71b]" name="img3" type="file"></label>
+                <label for="img4"><input id="img4" class="ps-1 py-1 mt-2 w-[100%] text-[#ffd71b]" name="img4" type="file"></label>
+            </div>
+            </div>
+            <button class="bg-[#ffd71b] py-2 text-xl px-3 rounded mt-4" type="submit" value="submit">Submit</button>
+        </form>
+        <div class="border-4 border-black mt-4 lg:mt-0 pt-8 mb-1 pb-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-y-8 bg-[#ffd71b] p-4 sm:px-10 lg:px-6 font-medium">
+            <div class="flex flex-col gap-y-2">
+                <h2 class="my-1 font-bold">CONTACT INFORMATION:</h2>
+                <p>PHONE 5487942221</p>
+                <p>PHONE 5487942221</p>
+            </div>
+            <div class="flex flex-col gap-y-1">
+                <h2 class="my-1 font-bold">ADRESS:</h2>
+                <p>506 main street Brampton</p>
+                <p>506 main street Brampton</p>
+            </div>
+            <div class="flex flex-col gap-y-5">
+                <h2 class="mt-4 font-bold">BUSINESS HOURS:</h2>
+                <div class="flex flex-col gap-y-1">
+                <h2 class="my-1 font-bold pb-3">MAIN</h2>
+                    <p class="flex flex-col sm:flex-row sm:gap-x-8">Monday ,Friday<span class="pt-[0.3rem] sm:ps-8">7:00 AM to 9:00 PM</span></p>
+                    <p class="flex flex-col sm:flex-row sm:gap-x-8">Monday ,Friday<span class="pt-[0.3rem] sm:ps-8">7:00 AM to 9:00 PM</span></p>
+                    <p class="flex flex-col sm:flex-row sm:gap-x-8">Monday ,Friday<span class="pt-[0.3rem] sm:ps-8">7:00 AM to 9:00 PM</span></p>
+                </div>
+                <div class="flex flex-col gap-y-1">
+                    <h2 class="my-2 font-bold pb-3">SERVICE</h2>
+                    <p class="flex flex-col sm:flex-row sm:gap-x-8">Monday ,Friday<span class="pt-[0.3rem] sm:ps-8">7:00 AM to 9:00 PM</span></p>
+                    <p class="flex flex-col sm:flex-row sm:gap-x-8">Monday ,Friday<span class="pt-[0.3rem] sm:ps-8">7:00 AM to 9:00 PM</span></p>
+                    <p class="flex flex-col sm:flex-row sm:gap-x-8">Monday ,Friday<span class="pt-[0.3rem] sm:ps-8">7:00 AM to 9:00 PM</span></p>
+                </div>
+                <div class="flex flex-col gap-y-1">
+                    <h2 class="my-2 font-bold pb-3">SALES</h2>
+                    <p class="flex flex-col sm:flex-row sm:gap-x-8">Monday ,Friday<span class="pt-[0.3rem] sm:ps-8">7:00 AM to 9:00 PM</span></p>
+                    <p class="flex flex-col sm:flex-row sm:gap-x-8">Monday ,Friday<span class="pt-[0.3rem] sm:ps-8">7:00 AM to 9:00 PM</span></p>
+                    <p class="flex flex-col sm:flex-row sm:gap-x-8">Monday ,Friday<span class="pt-[0.3rem] sm:ps-8">7:00 AM to 9:00 PM</span></p>
+                </div>
+            </div>
+        </div>
+        </div>
+<script src="../scripts/sell.js"></script>
+</body>
+</html>
