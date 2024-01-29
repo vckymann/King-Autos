@@ -1,5 +1,5 @@
 {
-  "name": "project-gym",
+  "name": "project-king-autos",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,7 +8,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "vikas singh mann",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.20.2",
