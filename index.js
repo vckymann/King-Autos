@@ -3,6 +3,10 @@ import bodyParser from "body-parser";
 import multer from "multer";
 import { dirname} from "path";
 import { fileURLToPath } from "url";
+import { v4 as uuidv4 } from "uuid";
+import fs from "fs/promises";
+
+const DATA_FILE_PATH = './car-data/data.json';
 
 const app = express();
 const port = 3000;
@@ -26,7 +30,27 @@ const upload = multer({storage:storage,}).fields([
     { name: 'img4', maxCount:1 }
 ]);
 
+
+loadData();
 let sellCars = [];
+
+async function saveData() {
+    try {
+        const dataToSave = JSON.stringify({sellCars});
+        await fs.writeFile(DATA_FILE_PATH, dataToSave);
+    } catch(error) {
+        console.error(`error:`, error.message);
+    }
+}
+
+async function loadData () {
+    try {
+         const data = await fs.readFile(DATA_FILE_PATH, 'utf-8');
+         sellCars = JSON.parse(data).sellCars || [];
+    } catch (error) {
+        console.error('error:', error.message);
+    }
+}
 
 app.get("/",(req,res) => {
     res.sendFile(__dirname + '/public/dist/index.html');
@@ -43,6 +67,7 @@ app.post("/submit", upload, (req,res) => {
     const img4path = req.files && req.files["img4"] ? `./uploads/${req.files['img4'][0].filename}` : null;
 
     let oldcar = {
+        id:uuidv4(),
         fname:req.body.fname,
         lname:req.body.lname,
         email:req.body.email,
@@ -58,7 +83,11 @@ app.post("/submit", upload, (req,res) => {
     };
     
     sellCars.push(oldcar);
+
+    saveData();
+
     console.log(oldcar);
+    console.log(sellCars);
     res.redirect("/")
 });
 
