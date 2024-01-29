@@ -34,13 +34,20 @@ const upload = multer({storage:storage,}).fields([
 loadData();
 let sellCars = [];
 
+
 async function saveData() {
-    try {
-        const dataToSave = JSON.stringify({sellCars});
-        await fs.writeFile(DATA_FILE_PATH, dataToSave);
-    } catch(error) {
-        console.error(`error:`, error.message);
+  try {
+    const dataToSave = JSON.stringify({ sellCars });
+    const fileExists = await fs.promises.access(DATA_FILE_PATH)
+      .then(() => true)
+      .catch(() => false);
+    if (!fileExists) {
+      await fs.promises.writeFile(DATA_FILE_PATH, '');
     }
+    await fs.promises.appendFile(DATA_FILE_PATH, dataToSave);
+  } catch (error) {
+    console.error('Error:', error.message);
+  }
 }
 
 async function loadData () {
