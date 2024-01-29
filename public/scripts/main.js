@@ -27,7 +27,7 @@ function hide () {
 function changecolor () {
 let header = document.querySelector(`header`);
 if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 500){
-        header.style.backgroundColor = `black`;
+        header.style.backgroundColor = `#141414`;
         header.style.color = `gold`;
     } else {
         header.style.backgroundColor = `transparent`;

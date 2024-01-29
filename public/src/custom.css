@@ -8,7 +8,6 @@ html {
 body {
     margin: 0;
     padding: 0;
-    background-color: black;
 }
 ::-webkit-scrollbar {
     display: none;
@@ -27,7 +26,7 @@ body {
         background-position: center;
         background-size: cover;
         background-repeat: no-repeat;
-        background-position-y:bottom;
+        background-position-y:center;
         background-position-x: center;
     }        
 }
@@ -42,11 +41,6 @@ header {
     z-index: 20;
 }
 @media (min-width:900px) {
-    
-    .h:hover,.a:hover,.p:hover,.c:hover {
-        text-decoration: underline;
-        text-underline-offset: 10px;
-    }
 
     .header-btn:hover {
         border-radius: 5px;
@@ -61,8 +55,8 @@ header {
    
 }
 .header {
-    padding-bottom: 1.5rem;
-    padding-top: 1.5rem;
+    padding-bottom: 1.2rem;
+    padding-top: 1.2rem;
     padding-left: 1rem;
 }
 .hdr-btn-cont {
@@ -401,10 +395,10 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 /* pop up effect */
 .reveal {
     position: relative;
-    transform: translateY(40px);
+    transform: translateY(20px);
     opacity: 0;
     transition: all 1s ease;
-}
+ }
 .reveal.active {
     transform: translateY(0px);
     opacity: 1;
