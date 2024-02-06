@@ -8,11 +8,11 @@
 </head>
 <body class="bg-black">
     <main>
-        <section class="img1 flex justify-center">
-            <header class="max-w-[133rem]">
-                <div class="header pt-4">
+        <section class="img1 snap">
+            <header class="mx-auto max-w-[133rem]">
+                <div class="header">
                     <div>
-                        <img class="fill-white" src="../images/icons8-crown-50.png" alt="">
+                        <img class="fill-white" width="45" src="../images/icons8-crown-50.png" alt="">
                     </div> 
                     </div>
                     <button class="hamburger">
@@ -28,17 +28,33 @@
             </div>
             <div class="mx-auto max-w-[133rem] h-screen flex justify-center items-center">
                 <div class="flex flex-col items-center gap-6 sm:gap-4 text-center">
-                    <h2 class="font-poppins font-bold text-4xl sm:text-7xl text-[#ffd71b]">LET'S GET YOU ON THE ROAD!</h2>
-                    <p class="text-white text-[1.3rem] sm:text-[1.5rem]">King Autos Provide Cars of Famous Luxurious Brands All Across Canada.</p>
-                    <a href="#down"><button class="bg-[#ffd71b] sm:mt-8 hover:scale-105 transition-all font-poppins font-extrabold text-2xl py-[0.5rem] px-10 sm:text-3xl sm:py-3 rounded-sm">Buy Now</button></a>
+                    <h2 class="font-poppins font-bold text-4xl px-2 sm:text-7xl text-[#ffd71b]">LET'S GET YOU ON THE ROAD!</h2>
+                    <p class="text-white text-[1.3rem] px-2 sm:text-[1.5rem]">King Autos Provide Cars of Famous Luxurious Brands All Across Canada.</p>
+                    <a href="#down"><button class="cssbuttons-io-button font-poppins font-extrabold text-xl">
+                        Buy Now
+                        <div class="icon">
+                          <svg
+                            height="24"
+                            width="24"
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path d="M0 0h24v24H0z" fill="none"></path>
+                            <path
+                              d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z"
+                              fill="currentColor"
+                            ></path>
+                          </svg>
+                        </div>
+                      </button>
+                    </a>
                 </div>
             </div>
         </section>
-        <div  id="down" class="h-4 bg-[#001f3f]"></div>
-        <section>
-                <div class="bg-[#0a0a0a] reveal mx-auto max-w-[133rem] py-0 px-3 sm:px-6 lg:px-10 font-poppins relative pt-4 pb-12">
+        <section id="down" class="snap">
+                <div class="reveal mx-auto max-w-[133rem] py-0 px-3 sm:px-6 lg:px-10 font-poppins relative pt-4 pb-12">
                     <div class="font-poppins font-extrabold text-center text-2xl py-4 sm:text-4xl sm:py-6 bg-[#ffd71b]">BROWSE CARS</div>
-                    <div class="info-card mt-14 sm:mt-28 rounded pt-3 px-2 sm:ps-10 sm:pe-10 lg:pe-0">
+                    <div class="info-card mt-14 sm:mt-28 rounded pt-4 sm:pt-14 px-2 sm:ps-10 sm:pe-10 lg:pe-0">
                         <p class="js-alert-msg"></p>
                         <div class="form1 grid gap-y-9 gap-x-6 sm:grid-cols-2 sm:grid-rows-2 lg:grid-cols-2 lg:grid-rows-2">
                             <div class="box">
@@ -126,43 +142,42 @@
                     </select>
                 </div>
             </div>
-            <div class="box lg:pe-[3rem] pt-16 pb-10">
-                <button class="search-btn">Search</button>
+            <div class="box lg:pe-[3rem] pt-6 pb-6 sm:pt-16 sm:pb-10">
+                <button class="hover:bg-[#ffd71b] hover:text-black search-btn">Search</button>
             </div>
         </div>
 </div>
 </section>
-<div class="h-3 bg-[#001f3f]"></div>
-<section>
-    <div class="img2 bg-[#0c0c0c] reveal mx-auto font-poppins max-w-[133rem] px-3 sm:px-6 lg:px-10 pt-6">
+<section class="snap">
+    <div class="img2 bg-[#0c0c0c] reveal mx-auto font-poppins max-w-[133rem] px-3 sm:px-6 lg:px-10 pt-6 sm:h-[100%]">
         <div class="font-poppins font-extrabold text-center py-4 sm:py-6 text-2xl sm:text-4xl bg-[#ffd71b]">WHY US</div>
-        <div class="pt-14 p-5 sm:pt-72 mt-4 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-x-4 gap-y-4 text-[1.7rem] font-poppins font-bold text-black">                                        
+        <div class="pt-14 p-5 sm:pt-[13.5rem] mt-4 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-x-4 gap-y-4 text-[1.7rem] font-poppins font-bold text-black">                                        
             <div class="flex flex-col items-center pt-6 gap-y-6 text-center rounded bg-[#ffd71b] hover:-translate-y-3 duration-300 pb-6">
                 <img width="70" src="../images/small/icons8-quality-50.png" alt="">
                 <h2>Quality</h2>
                 <p class="text-xl font-medium max-w-72">We ensure the best quality through efficient production,strict safety adherence and a focus on customer satisfaction.</p>
-                    </div>
-                    <div class="flex flex-col items-center pt-6 gap-y-6 text-center bg-[#ffd71b] rounded pb-4  hover:-translate-y-3 duration-300">
+            </div>
+            <div class="flex flex-col items-center pt-6 gap-y-6 text-center bg-[#ffd71b] rounded pb-4  hover:-translate-y-3 duration-300">
                         <img width="70" src="../images/small/icons8-exchange-80.png" alt="">
                         <h2>Low Prices</h2>
                         <p class="text-xl font-medium max-w-72">We deliver affordability by consistently providing competitive rates through strategic financial management, ensuring low prices.</p>
-                    </div>
-                    <div class="flex flex-col items-center pt-6 gap-y-6 text-center bg-[#ffd71b] rounded pb-4  hover:-translate-y-3 duration-300">
+            </div>
+            <div class="flex flex-col items-center pt-6 gap-y-6 text-center bg-[#ffd71b] rounded pb-4  hover:-translate-y-3 duration-300">
                         <img width="70" src="../images/small/icons8-eye-50.png" alt="">
                         <h2>Transparency</h2>
                         <p class="text-xl font-medium max-w-72">Trust in our commitment to transparency, as we provide detailed vehicle histories, empowering you to make informed decisions with confidence.</p>
-                    </div>
-                    <div class="flex flex-col items-center pt-6 gap-y-6 text-center bg-[#ffd71b] rounded pb-4  hover:-translate-y-3 duration-300">
+            </div>
+            <div class="flex flex-col items-center pt-6 gap-y-6 text-center bg-[#ffd71b] rounded pb-4  hover:-translate-y-3 duration-300">
                         <img width="70" src="../images/small/icons8-protect-50.png" alt="">
                         <h2>Reliability</h2>
                         <p class="text-xl font-medium max-w-72">Our commitment goes beyond selling cars,it's about delivering a dependable, trustworthy experience.Count on us for seamless approach.</p>
-                    </div>
+            </div>
                 </div>
             </div>
         </section>
-        <section class="mt-10">
-            <div class="reveal pt-10">
-                <h2 class="font-poppins text-[#ffd71b] font-extrabold text-4xl text-center pb-10 underline underline-offset-8 decoration-[#ffd71b]">HOT DEALS!</h2>
+        <section class="snap">
+            <div class="reveal mx-auto font-poppins max-w-[133rem] px-3 sm:px-6 lg:px-10 pt-4">
+                <div class="font-poppins font-extrabold text-center py-4 sm:py-6 text-2xl sm:text-4xl bg-[#ffd71b]">HOT DEALS!</div>
                 <div class="pick-vehicles">
                     <div class="car-names">
                         <button class="js-btn-1">Ferrari</button>
@@ -207,13 +222,28 @@
             </div>
             </div>
         </section>
-        <section>
-            <div class="reveal flex justify-center items-center mt-40">
-                <a class="sell-btn bg-[#ffd71b] hover:opacity-50 font-poppins font-bold text-[1.3rem] text-black px-3 py-2 border-black" href="sell.html">Sell Your Car ➡️</a>    
+        <section class="snap">
+            <div class="reveal mx-auto font-poppins max-w-[133rem] px-3 sm:px-6 lg:px-10 pt-4">           
+                <div>
+                    <div>
+                        <h2>Our Customers Love What We Do</h2>
+                        <h3>
+                          "At King Autos, our customers love what we do.
+                          They value the effortless process of finding their dream car on our website and trust our transparent information.
+                          Whether selling their car to us or buying from our curated selection,
+                          King Autos ensures a seamless and trusted car transaction journey."</h3>
+                    </div>
+                    <div>
+                        <div>Emily Turner:
+                            "Selling my car to King Autos was a breeze! Their fair pricing and hassle-free process made it the best decision. I highly recommend King Autos for anyone looking to sell their car effortlessly."</div>
+                        <div>James Rodriguez:
+                            "King Autos made buying my dream car a reality. The website's user-friendly interface and transparent information about each vehicle helped me make a confident choice. The whole experience was smooth, and I couldn't be happier with my purchase."</div>
+                        <div>Sophia Patel:
+                            "King Autos provided top-notch service when I decided to upgrade my vehicle. The team's professionalism and fair evaluation of my old car made the selling process straightforward. Trustworthy and reliable – that's King Autos for you!"</div>
+                    </div>
+                </div>
+                <div></div>
             </div>
-        </section>
-        <section>
-
         </section>
     </main>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>

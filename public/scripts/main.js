@@ -1,14 +1,4 @@
-document.querySelector(`.sell-btn`).addEventListener("click",(e) => {
-    document.querySelector(`.booking-page`).classList.add(`show`);
-    document.querySelector(`main`).classList.add(`fixed`);
-        //booking-pg close btn
-    const cross_btn = document.querySelector(`.js-cross`);
 
-    cross_btn.addEventListener("click", () => {
-        document.querySelector(`.booking-page`).classList.remove(`show`);
-        document.querySelector(`main`).classList.remove(`fixed`);
-    })
-});
 
 let mob_page = document.querySelector(`.mob-page`);
 let menu_btn = document.querySelector(`.hamburger`);
