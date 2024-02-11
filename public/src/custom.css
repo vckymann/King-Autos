@@ -19,6 +19,7 @@ body {
     background-repeat: no-repeat;
     background-position-y:center;
     background-position-x:center;
+    padding-top: 1rem;
 }
 @media (min-width:1280px) {
     .img2 {
@@ -35,11 +36,14 @@ body, html {
     scroll-snap-type: mandatory;
     scroll-snap-type: y mandatory!important;
 }
-.snap {
-    scroll-snap-align: start!important;
-    min-height: 100vh;
-    overflow:hidden;
+@media (min-width:1040px) {
+    .snap {
+        scroll-snap-align: start!important;
+        min-height: 100vh;
+        overflow:hidden;
+    }    
 }
+
 main .snap:first-of-type {
     height: 100%;
 }
@@ -54,7 +58,6 @@ header {
     z-index: 20;
     border-top: 1px solid #ffd71b;
     border-bottom: 1px solid #ffd71b;
-    margin-top: 1rem;
 }
 @media (min-width:900px) {
 
