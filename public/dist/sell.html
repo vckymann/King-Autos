@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../src/output.css">
+    <link rel="stylesheet" href="../src/custom.css">
     <style>
         ::-webkit-scrollbar {
             display: none;
@@ -17,7 +18,26 @@
     </style>
 </head>
 <body class="font-poppins p-2">
-    <div class="flex flex-col lg:flex-row lg:justify-center gap-x-4 mt-10 mb-10">
+    <header class="mx-auto max-w-[133rem]">
+        <div class="header">
+            <div>
+                <img class="fill-white" width="45" src="../images/icons8-crown-50.png" alt="King Automobiles logo">
+            </div> 
+            </div>
+            <button class="hamburger">
+                <div class="bar"></div>
+            </button>
+        
+    </header>
+    <div class="mob-page">
+        <a onclick="hide();" class="mob-links" href="./">Home</a>
+        <a onclick="hide()" class="mob-links" href="about.html">About Us</a>
+        <a onclick="hide()" class="mob-links" href="repair.html">Repair</a>
+        <a onclick="hide()" class="mob-links" href="wheels.html">Wheels</a>
+        <a onclick="hide()" class="mob-links" href="inventory.html">Inventory</a>
+        <a onclick="hide()" class="mob-links" href="sell.html">Sell Your Car</a>
+    </div>
+    <div class="flex flex-col lg:flex-row lg:justify-center gap-x-4 mb-10 mt-5">
         <form class="bg-black border-4 border-[#ffd71b] font-semibold p-8 flex flex-col justify-start" method="post" action="/submit" enctype="multipart/form-data">
             <div class="flex flex-col gap-y-4">
             <h2 class="font-bold text-xl">PERSONAL INFORMATION</h2>
@@ -79,5 +99,6 @@
         </div>
         </div>
 <script src="../scripts/sell.js"></script>
+<script src="../scripts/main.js"></script>
 </body>
 </html>

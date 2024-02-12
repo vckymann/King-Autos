@@ -149,7 +149,9 @@ header {
     left: 0;
     top: 0;
 }
-
+body.is-active {
+    overflow: hidden;
+}
 
 .mob-page {
     display: flex;
@@ -167,7 +169,7 @@ header {
     text-decoration: none;
 }
 .mob-links:first-of-type {
-    margin-top: 1rem;
+    margin-top: 3rem;
 }
 .mob-links:hover {
     color: var(--color-primary);

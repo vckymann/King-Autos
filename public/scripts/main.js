@@ -1,12 +1,15 @@
 
 
-let mob_page = document.querySelector(`.mob-page`);
-let menu_btn = document.querySelector(`.hamburger`);
-let mob_links = document.querySelector(`.mob-links`);
+const mob_page = document.querySelector(`.mob-page`);
+const menu_btn = document.querySelector(`.hamburger`);
+const mob_links = document.querySelector(`.mob-links`);
+const body = document.querySelector(`body`);
 
 menu_btn.addEventListener(`click`,() => {
+    body.classList.toggle(`is-active`);
     menu_btn.classList.toggle(`is-active`);
     mob_page.classList.toggle(`is-active`);
+    mob_links.classList.toggle(`is-active`);
 });
 
 function hide () {
@@ -70,32 +73,32 @@ transmission.html(`${m.transmission}`);
 fuel.html(`${m.fuel}`);
 }
 
-let btn_1 = $(`.js-btn-1`);
+const btn_1 = $(`.js-btn-1`);
 btn_1.on("click",()=> {
 carDisplay(car1);
 })
 
-let btn_2 = $(`.js-btn-2`);
+const btn_2 = $(`.js-btn-2`);
 btn_2.on(`click`, ()=> {
 carDisplay(car2);
 })
 
-let btn_3 = $(`.js-btn-3`);
+const btn_3 = $(`.js-btn-3`);
 btn_3.on(`click`, ()=> {
 carDisplay(car3);
 })
 
-let btn_4 = $(`.js-btn-4`);
+const btn_4 = $(`.js-btn-4`);
 btn_4.on(`click`, ()=> {
 carDisplay(car4);
 });
 
-let btn_5 = $(`.js-btn-5`);
+const btn_5 = $(`.js-btn-5`);
 btn_5.on(`click`, ()=> {
 carDisplay(car5);
 });
 
-let btn_6 = $(`.js-btn-6`);
+const btn_6 = $(`.js-btn-6`);
 btn_6.on(`click`, ()=> {
 carDisplay(car6);
 });
@@ -103,7 +106,7 @@ carDisplay(car6);
 
 //fade in effect while scrolling
 window.addEventListener('scroll', () => {
-    let reveals = document.querySelectorAll('.reveal');
+    const reveals = document.querySelectorAll('.reveal');
     reveals.forEach((reveal) => {
         let windowheight = window.innerHeight;
         let revealtop = reveal.getBoundingClientRect().top;
