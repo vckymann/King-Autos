@@ -1,8 +1,6 @@
-
-
 const mob_page = document.querySelector(`.mob-page`);
 const menu_btn = document.querySelector(`.hamburger`);
-const mob_links = document.querySelector(`.mob-links`);
+const header = document.querySelector(`header`);
 const body = document.querySelector(`body`);
 
 menu_btn.addEventListener(`click`,() => {
@@ -10,27 +8,8 @@ menu_btn.addEventListener(`click`,() => {
     menu_btn.classList.toggle(`is-active`);
     mob_page.classList.toggle(`is-active`);
     mob_links.classList.toggle(`is-active`);
-});
-
-function hide () {
-    mob_page.classList.toggle(`is-active`);
-    menu_btn.classList.toggle(`is-active`);
-}
-
-function changecolor () {
-let header = document.querySelector(`header`);
-if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 500){
-        header.style.backgroundColor = `#141414`;
-        header.style.color = `gold`;
-    } else {
-        header.style.backgroundColor = `transparent`;
-    }
-}
-
-let scroll = window.onscroll = function () {
-    changecolor();
-}
-
+    header.classList.toggle(`is-active`);
+})
 
 //constructor function
 

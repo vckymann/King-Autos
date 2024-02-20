@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Sell Your Car</title>
     <link rel="stylesheet" href="../src/output.css">
     <link rel="stylesheet" href="../src/custom.css">
     <style>
@@ -18,25 +18,7 @@
     </style>
 </head>
 <body class="font-poppins p-2">
-    <header class="mx-auto max-w-[133rem]">
-        <div class="header">
-            <div>
-                <img class="fill-white" width="45" src="../images/icons8-crown-50.png" alt="King Automobiles logo">
-            </div> 
-            </div>
-            <button class="hamburger">
-                <div class="bar"></div>
-            </button>
-        
-    </header>
-    <div class="mob-page">
-        <a onclick="hide();" class="mob-links" href="./">Home</a>
-        <a onclick="hide()" class="mob-links" href="about.html">About Us</a>
-        <a onclick="hide()" class="mob-links" href="repair.html">Repair</a>
-        <a onclick="hide()" class="mob-links" href="wheels.html">Wheels</a>
-        <a onclick="hide()" class="mob-links" href="inventory.html">Inventory</a>
-        <a onclick="hide()" class="mob-links" href="sell.html">Sell Your Car</a>
-    </div>
+    <%- include('header.ejs') %>
     <div class="flex flex-col lg:flex-row lg:justify-center gap-x-4 mb-10 mt-5">
         <form class="bg-black border-4 border-[#ffd71b] font-semibold p-8 flex flex-col justify-start" method="post" action="/submit" enctype="multipart/form-data">
             <div class="flex flex-col gap-y-4">
@@ -44,22 +26,19 @@
             <div class="border-[#ffd71b] border p-3 py-5 grid gap-y-8 sm:grid-cols-2 sm:grid-rows-2 sm:gap-x-5 text-[#ffd71b]">
                 <label for="fname">First Name (Required)<input name="fname" placeholder="  First Name" class="text-black ps-1 py-1 mt-2 w-[100%]" id="fname" type="text"></label>
                 <label for="lname">Last Name (Required) <input name="lname" placeholder="  Last Name" class="text-black ps-1 py-1 mt-2 w-[100%]" id="lname" type="text"></label>
-                <label for="email">Email (Required)     <input name="email" placeholder="  Email Address" class="text-black ps-1 py-1 mt-2 w-[100%]" id="email" type="text"></label>
-                <label for="number">Ph-Number (Required)<input name="number" placeholder="  Phone Number" class="text-black ps-1 py-1 mt-2 w-[100%]"  id="number" type="text"></label>
+                <label for="email">Email (Required)     <input name="email" placeholder="  Email Address" class="text-black ps-1 py-1 mt-2 w-[100%]" id="email" type="email" autocomplete="email"></label>
+                <label for="number">Ph-Number (Required)<input name="number" placeholder="  Phone Number" class="text-black ps-1 py-1 mt-2 w-[100%]"  id="number" type="number"></label>
             </div>
             <h2 class="font-bold text-xl">VEHICLE INFORMATION</h2>
             <div class="border-[#ffd71b] border p-3 py-5 grid gap-y-8 sm:grid-cols-2 sm:grid-rows-2 sm:gap-x-5 text-[#ffd71b]">
-                <label for="year">Year (Required)<input placeholder="  Year"  class="text-black ps-1 py-1 mt-2 w-[100%]"  name="year"  id="year" type="text"></label>
-                <label for="make">Make (Required)<input placeholder="  Make"  class="text-black ps-1 py-1 mt-2 w-[100%]"  name="make"  id="make" type="text"></label>
-                <label for="model">Model (Required)<input placeholder="  Car-Model" class="text-black ps-1 py-1 mt-2 w-[100%]" name="model"   id="mode" type="text"></label>
+                <label for="year">Year (Required)<input placeholder="  Year"  class="text-black ps-1 py-1 mt-2 w-[100%]"  name="year"  id="year" type="number"></label>
+                <label for="brand">Brand (Required)<input placeholder="  Brand"  class="text-black ps-1 py-1 mt-2 w-[100%]"  name="brand"  id="brand" type="text"></label>
+                <label for="model">Model (Required)<input placeholder="  Car-Model" class="text-black ps-1 py-1 mt-2 w-[100%]" name="model"   id="model" type="text"></label>
                 <label for="vin">vin<input placeholder="  Vin" class="text-black ps-1 py-1 mt-2 w-[100%]"  id="vin"  name="vin"  type="text"></label>
             </div>
             <h2 class="font-bold text-xl">EXTERIOR AND CAR INTERIOR IMAGES</h2>
-            <div class="border-[#ffd71b] border px-10 lg:px-4 py-5 grid gap-y-8 sm:grid-cols-2 sm:grid-rows-2">
-                <label for="img1"><input id="img1" class="ps-1 py-1 mt-2 w-[100%] text-[#ffd71b]" name="img1" type="file"></label>
-                <label for="img2"><input id="img2" class="ps-1 py-1 mt-2 w-[100%] text-[#ffd71b]" name="img2" type="file"></label>
-                <label for="img3"><input id="img3" class="ps-1 py-1 mt-2 w-[100%] text-[#ffd71b]" name="img3" type="file"></label>
-                <label for="img4"><input id="img4" class="ps-1 py-1 mt-2 w-[100%] text-[#ffd71b]" name="img4" type="file"></label>
+            <div class="border-[#ffd71b] border px-0 lg:px-10 py-2 flex justify-center">
+                <label class="ps-24" for="img1"><input id="img1" class="ps-1 py-1 mt-2 w-[100%] text-[#ffd71b]" name="img1" type="file"></label>
             </div>
             </div>
             <button class="bg-[#ffd71b] py-2 text-xl px-3 rounded mt-4" type="submit" value="submit">Submit</button>
@@ -98,7 +77,7 @@
             </div>
         </div>
         </div>
-<script src="../scripts/sell.js"></script>
-<script src="../scripts/main.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script src="../scripts/main.js"></script>
 </body>
 </html>

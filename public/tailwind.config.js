@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./dist/*.html"],
+  content: ["../views/*.ejs"],
   theme: {
     extend: {
       fontFamily: {
@@ -11,7 +11,7 @@ module.exports = {
         'secondary': 'black',
         'textblack': 'black',
         'textwhite': 'white',
-      }
+      },
     },
   },
   plugins: [],

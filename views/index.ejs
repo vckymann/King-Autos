@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -9,25 +10,7 @@
 <body class="bg-secondary">
     <main class="font-poppins">
         <section class="img1 snap">
-            <header class="mx-auto max-w-[133rem]">
-                <div class="header">
-                    <div>
-                        <img class="fill-white" width="45" src="../images/icons8-crown-50.png" alt="King Automobiles logo">
-                    </div> 
-                    </div>
-                    <button class="hamburger">
-                        <div class="bar"></div>
-                    </button>
-                
-            </header>
-            <div class="mob-page">
-                <a onclick="hide();" class="mob-links" href="./">Home</a>
-                <a onclick="hide()" class="mob-links" href="#about">About Us</a>
-                <a onclick="hide()" class="mob-links" href="#repair">Repair</a>
-                <a onclick="hide()" class="mob-links" href="#wheels">Wheels</a>
-                <a onclick="hide()" class="mob-links" href="#inventory">Inventory</a>
-                <a onclick="hide()" class="mob-links" href="sell.html">Sell Your Car</a>
-            </div>
+            <%- include('header.ejs') %>
             <div class="mx-auto max-w-[133rem] h-screen flex justify-center items-center">
                 <div class="flex flex-col items-center gap-6 text-center sm:gap-4">
                     <h2 class="font-bold text-4xl px-2 text-primary sm:text-7xl">LET'S GET YOU ON THE ROAD!</h2>
@@ -296,14 +279,14 @@
     </main>
     <footer class="snap">
         <div class="reveal mx-auto max-w-[133rem] pt-12 px-3 sm:px-6 sm:pt-6 lg:px-10">
-            <div class="bg-gray-800 flex flex-col items-center gap-10 mb-4 pb-20 lg:pb-10">
-                <img class="pt-24" src="../images/icons8-crown-50.png" alt="">
+            <div class="bg-gray-800 flex flex-col items-center gap-10 mb-4 pb-14 lg:pb-10">
+                <img class="pt-16" src="../images/icons8-crown-50.png" alt="">
                 <h2 class="font-bold text-3xl text-textwhite text-center">SUBSCRIBE TO OUR NEWSLETTER!</h2>
                 <form class="flex flex-col gap-4" action="">
                     <label for="news-email"><input class="bg-black border-white border-2 px-4 py-2 text-textwhite" type="email" placeholder="Enter your Email" name="news-email" id="news-email"></label>
-                    <label for=""><input class="w-[100%] hover:cursor-pointer active:opacity-25 bg-black border-white border-2 px-4 py-2 text-textwhite" type="submit"></label>
+                    <label><input class="w-[100%] hover:cursor-pointer active:opacity-25 bg-black border-white border-2 px-4 py-2 text-textwhite" type="submit"></label>
                 </form>
-                <div class="flex flex-col gap-7 items-center mt-20">
+                <div class="flex flex-col gap-7 items-center mt-10">
                     <h2 class="font-bold text-3xl text-textwhite">KING AUTOS</h2>
                     <div class="flex gap-8">
                         <img src="../images/small/icons8-facebook-50.png" alt="facebook">

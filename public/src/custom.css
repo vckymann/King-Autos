@@ -150,7 +150,7 @@ header {
     top: 0;
 }
 body.is-active {
-    overflow: hidden;
+    overflow: hidden!important;
 }
 
 .mob-page {
