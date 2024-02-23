@@ -41,13 +41,9 @@ body, html {
 @media (min-width:1040px) {
     .snap {
         scroll-snap-align: start!important;
-        min-height: 100vh;
+        height: 100vh;
         overflow:hidden;
     }    
-}
-
-main .snap:first-of-type {
-    height: 100%;
 }
 
 header {
@@ -440,7 +436,17 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     padding: 0.5rem 0;
     font-size: 1.5rem;
     font-weight: bold;
+    transition: all 0.15s;
 }
+.tbl-reserve-btn:hover {
+    background-color: var(--color-secondary);
+    color: var(--color-textwhite);
+}
+.tbl-reserve-btn:active {
+    scale: 0.95;
+    opacity: 0.5;
+}
+
 @media (min-width:700px) {
   .pick-vehicles {
     gap: 3rem!important;

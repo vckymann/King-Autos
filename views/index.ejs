@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>King-Automobiles</title>
-    <link rel="stylesheet" href="../src/output.css">
     <link rel="stylesheet" href="../src/custom.css">
+    <link rel="stylesheet" href="../src/output.css">
 </head>
 <body class="bg-secondary">
     <main class="font-poppins">
         <section class="img1 snap">
-            <%- include('header.ejs') %>
+            <%- include('partials/header.ejs') %>
             <div class="mx-auto max-w-[133rem] h-screen flex justify-center items-center">
                 <div class="flex flex-col items-center gap-6 text-center sm:gap-4">
                     <h2 class="font-bold text-4xl px-2 text-primary sm:text-7xl">LET'S GET YOU ON THE ROAD!</h2>
@@ -41,95 +41,36 @@
                     <div class=" bg-primary font-extrabold text-center text-2xl py-4 sm:text-4xl sm:py-6">BROWSE CARS</div>
                     <div class="info-card rounded mt-14 pt-4 px-2 sm:mt-28 sm:pt-14 sm:ps-10 sm:pe-10 lg:pe-0">
                         <p class="js-alert-msg"></p>
+                        <form id="filter">
                         <div class="form1 grid gap-y-9 gap-x-6 sm:grid-cols-2 sm:grid-rows-2 lg:grid-cols-2 lg:grid-rows-2">
                             <div class="box">
-                                <p>
-                                    Select Your Car Type<span>*</span></p>
-                                    <select class="border-black js-carpicked not">
-                                        <option value="0">Select your car type</option>
-                                        <option value="Sedan">Sedan</option>
-                                        <option value="SUV">SUV</option>
-                                        <option value="Convertible">Convertible</option>
-                                        <option value="lamborghini">Lamborghini</option>
-                                        <option value="Coupe">Coupe</option>
+                                <p>Select Brand<span>*</span></p>
+                                    <select id="brand" name="brand" class="border-black js-carpicked not">
+                                        <option value="">Car-Brand</option>
+
+                                        <!--populating all the brand names in the dropdown -->
+                                        <% carBrands.forEach(brand => { %>
+                                            <option value="<%= brand %>"><%= brand %></option> 
+                                        <% }) %>    
                                     </select>
                                 </div>
                                 <div class="box">
-                                    <p class="">Car-Brand<span>*</span></p>
-                                    <select class="not js-p-location">
-                                        <option value="0">Select car Brand</option>
-                                        <option value="BMW">BMW</option>
-                                        <option value="Ferrari">Ferrari</option>
-                                        <option value="Audi">Audi</option>
-                                        <option value="Hellcat">Hellcat</option>
+                                    <p class="">Car-Model<span>*</span></p>
+                                    <select id="model" name="model">
+                                        <option value="">Any Model</option>
                                     </select>
                                 </div>
                                 <div class="box">
-                    <p><img class="calendar-svg" src="../images/small/Feather-core-calendar.svg" alt="calendar-icon">Car-Make (Min)<span>*</span></p>
-                    <select class="not js-p-location">
-                        <option value="0">Select car Make</option>
-                        <option value="2000">2000</option>
-                        <option value="2001">2001</option>
-                        <option value="2002">2002</option>
-                        <option value="2003">2003</option>
-                        <option value="2004">2004</option>
-                        <option value="2005">2005</option>
-                        <option value="2006">2006</option>
-                        <option value="2007">2007</option>
-                        <option value="2008">2008</option>
-                        <option value="2009">2009</option>
-                        <option value="2010">2010</option>
-                        <option value="2011">2011</option>
-                        <option value="2012">2012</option>
-                        <option value="2013">2013</option>
-                        <option value="2014">2014</option>
-                        <option value="2015">2015</option>
-                        <option value="2016">2016</option>
-                        <option value="2017">2017</option>
-                        <option value="2018">2018</option>
-                        <option value="2019">2019</option>
-                        <option value="2020">2020</option>
-                        <option value="2021">2021</option>
-                        <option value="2022">2022</option>
-                        <option value="2023">2023</option>
-                        <option value="2024">2024</option>
-                    </select>
-                </div>
-                <div class="box">
-                    <p><img class="calendar-svg" src="../images/small/Feather-core-calendar.svg" alt="calendar-icon">Car-Make (Max)<span>*</span></p>
-                    <select class="not js-p-location">
-                        <option value="0">Select car Make</option>
-                        <option value="2000">2000</option>
-                        <option value="2001">2001</option>
-                        <option value="2002">2002</option>
-                        <option value="2003">2003</option>
-                        <option value="2004">2004</option>
-                        <option value="2005">2005</option>
-                        <option value="2006">2006</option>
-                        <option value="2007">2007</option>
-                        <option value="2008">2008</option>
-                        <option value="2009">2009</option>
-                        <option value="2010">2010</option>
-                        <option value="2011">2011</option>
-                        <option value="2012">2012</option>
-                        <option value="2013">2013</option>
-                        <option value="2014">2014</option>
-                        <option value="2015">2015</option>
-                        <option value="2016">2016</option>
-                        <option value="2017">2017</option>
-                        <option value="2018">2018</option>
-                        <option value="2019">2019</option>
-                        <option value="2020">2020</option>
-                        <option value="2021">2021</option>
-                        <option value="2022">2022</option>
-                        <option value="2023">2023</option>
-                        <option value="2024">2024</option>
+                    <p><img class="calendar-svg" src="../images/small/Feather-core-calendar.svg" alt="calendar-icon">Year<span>*</span></p>
+                    <select id="year" name="Year">
+                        <option value="">Any Year</option>
                     </select>
                 </div>
             </div>
             <div class="box pt-6 pb-6 sm:pt-16 sm:pb-10 lg:pe-[3rem]">
-                <button class="hover:bg-primary hover:text-textblack search-btn">Search</button>
+                <button type="submit" class="hover:bg-primary hover:text-textblack search-btn">Search</button>
             </div>
+        </form>
         </div>
 </div>
 </section>
@@ -201,7 +142,7 @@
                             <div>
                                 <span class="spec">Fuel</span><span class="spec-ans js-fuel">Diesel</span>
                             </div>
-                            <div class="tbl-reserve-btn">Reserve Now</div>
+                            <a href="#down"><div class="tbl-reserve-btn">Reserve Now</div></a>
                         </div>
                 </div>
             </div>
@@ -277,29 +218,10 @@
             </div>
         </section>
     </main>
-    <footer class="snap">
-        <div class="reveal mx-auto max-w-[133rem] pt-12 px-3 sm:px-6 sm:pt-6 lg:px-10">
-            <div class="bg-gray-800 flex flex-col items-center gap-10 mb-4 pb-14 lg:pb-10">
-                <img class="pt-16" src="../images/icons8-crown-50.png" alt="">
-                <h2 class="font-bold text-3xl text-textwhite text-center">SUBSCRIBE TO OUR NEWSLETTER!</h2>
-                <form class="flex flex-col gap-4" action="">
-                    <label for="news-email"><input class="bg-black border-white border-2 px-4 py-2 text-textwhite" type="email" placeholder="Enter your Email" name="news-email" id="news-email"></label>
-                    <label><input class="w-[100%] hover:cursor-pointer active:opacity-25 bg-black border-white border-2 px-4 py-2 text-textwhite" type="submit"></label>
-                </form>
-                <div class="flex flex-col gap-7 items-center mt-10">
-                    <h2 class="font-bold text-3xl text-textwhite">KING AUTOS</h2>
-                    <div class="flex gap-8">
-                        <img src="../images/small/icons8-facebook-50.png" alt="facebook">
-                        <img src="../images/small/icons8-instagram-50.png" alt="instagram">
-                        <img src="../images/small/icons8-twitter-50.png" alt="twitter">
-                    </div>
-                    <h3 class="font-semibold text-center text-textwhite">© 2024 KING AUTOS <br> MADE BY <br> VIKAS SINGH MANN</h3>
-                </div>
-            </div>
-            </div>
-        </footer>
+    <%- include('partials/footer.ejs') %>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-        <script src="../scripts/main.js"></script>
+        <script src="/scripts/main.js"></script>
+        <script src="/scripts/inventory.js"></script>
 </body>
 </html>
 

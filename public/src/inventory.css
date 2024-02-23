@@ -76,13 +76,11 @@
   gap: 7px;
 }
 
-.card .top-section .icons .social-media .svg {
-  height: 100%;
+.card .top-section .icons .social-media .svg:hover {
+  stroke: #ffd71b;
+  fill: transparent;
 }
 
-.card .top-section .icons .social-media .svg:hover {
-  fill: black;
-}
 
 .card .bottom-section {
   margin-top: 15px;
