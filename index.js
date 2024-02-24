@@ -38,7 +38,11 @@ const storage = multer.diskStorage({
 });
 
 //multer field setup 
-const upload = multer({storage:storage,}).fields([
+const upload = multer({
+  storage:storage,
+  limits: {
+    fileSize: 1024 * 1024 * 5// 5MB
+  }}).fields([
     { name: 'img1', maxCount:1 },                
     { name: 'img2', maxCount:1 },
     { name: 'img3', maxCount:1 },

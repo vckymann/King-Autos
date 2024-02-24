@@ -22,22 +22,27 @@
     <div class="flex flex-col lg:flex-row lg:justify-center gap-x-4 mb-10 mt-5">
         <form class="bg-black border-4 border-[#ffd71b] font-semibold p-8 flex flex-col justify-start" method="post" action="/submit" enctype="multipart/form-data">
             <div class="flex flex-col gap-y-4">
-            <h2 class="font-bold text-xl">PERSONAL INFORMATION</h2>
+            <h2 class="font-bold text-xl text-textwhite">PERSONAL INFORMATION</h2>
             <div class="border-[#ffd71b] border p-3 py-5 grid gap-y-8 sm:grid-cols-2 sm:grid-rows-2 sm:gap-x-5 text-[#ffd71b]">
-                <label for="fname">First Name (Required)<input name="fname" placeholder="  First Name" class="text-black ps-1 py-1 mt-2 w-[100%]" id="fname" type="text"></label>
-                <label for="lname">Last Name (Required) <input name="lname" placeholder="  Last Name" class="text-black ps-1 py-1 mt-2 w-[100%]" id="lname" type="text"></label>
-                <label for="email">Email (Required)     <input name="email" placeholder="  Email Address" class="text-black ps-1 py-1 mt-2 w-[100%]" id="email" type="email" autocomplete="email"></label>
-                <label for="number">Ph-Number (Required)<input name="number" placeholder="  Phone Number" class="text-black ps-1 py-1 mt-2 w-[100%]"  id="number" type="number"></label>
+                <label for="fname">First Name (Required)<input required name="fname" placeholder="  First Name" class="text-black ps-1 py-1 mt-2 w-[100%]" id="fname" type="text"></label>
+                <label for="lname">Last Name (Required) <input required name="lname" placeholder="  Last Name" class="text-black ps-1 py-1 mt-2 w-[100%]" id="lname" type="text"></label>
+                <label for="email">Email (Required)     <input required name="email" placeholder="  Email Address" class="text-black ps-1 py-1 mt-2 w-[100%]" id="email" type="email" autocomplete="email"></label>
+                <label for="number">Ph-Number (Required)<input required name="number" placeholder="  Phone Number" class="text-black ps-1 py-1 mt-2 w-[100%]"  id="number" type="number"></label>
             </div>
-            <h2 class="font-bold text-xl">VEHICLE INFORMATION</h2>
+            <h2 class="font-bold text-xl text-textwhite">VEHICLE INFORMATION</h2>
             <div class="border-[#ffd71b] border p-3 py-5 grid gap-y-8 sm:grid-cols-2 sm:grid-rows-2 sm:gap-x-5 text-[#ffd71b]">
-                <label for="year">Year (Required)<input placeholder="  Year"  class="text-black ps-1 py-1 mt-2 w-[100%]"  name="year"  id="year" type="number"></label>
-                <label for="brand">Brand (Required)<input placeholder="  Brand"  class="text-black ps-1 py-1 mt-2 w-[100%]"  name="brand"  id="brand" type="text"></label>
-                <label for="model">Model (Required)<input placeholder="  Car-Model" class="text-black ps-1 py-1 mt-2 w-[100%]" name="model"   id="model" type="text"></label>
-                <label for="vin">vin<input placeholder="  Vin" class="text-black ps-1 py-1 mt-2 w-[100%]"  id="vin"  name="vin"  type="text"></label>
+                <label for="year">Year (Required)<input required placeholder="  Year"  class="text-black ps-1 py-1 mt-2 w-[100%]"  name="year"  id="year" type="number"></label>
+                <label for="brand">Brand (Required)<input required placeholder="  Brand"  class="text-black ps-1 py-1 mt-2 w-[100%]"  name="brand"  id="brand" type="text"></label>
+                <label for="model">Model (Required)<input required placeholder="  Car-Model" class="text-black ps-1 py-1 mt-2 w-[100%]" name="model"   id="model" type="text"></label>
+                <label for="vin">vin<input required placeholder="  Vin" class="text-black ps-1 py-1 mt-2 w-[100%]"  id="vin"  name="vin"  type="text"></label>
             </div>
-            <h2 class="font-bold text-xl">EXTERIOR AND CAR INTERIOR IMAGES</h2>
+            <h2 class="font-bold text-xl text-textwhite">CAR IMAGE</h2>
             <div class="border-[#ffd71b] border px-0 lg:px-10 py-2 flex justify-center">
+                <% if (locals.error) { %>
+                  <span><%= error %></span>  
+                <% } else { %>
+                    <span></span>
+                <% } %>
                 <label class="ps-24" for="img1"><input id="img1" class="ps-1 py-1 mt-2 w-[100%] text-[#ffd71b]" name="img1" type="file"></label>
             </div>
             </div>
