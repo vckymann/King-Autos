@@ -8,12 +8,14 @@ import bcrypt from "bcrypt";
 import session from "express-session";
 import passport from "passport";
 import { Strategy } from "passport-local";
+import env from "dotenv";
 
 //initializing
 const app = express();
 const port = 3000;
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const saltRounds = 10;
+env.config(); 
 
 //middlewares
 app.use(express.urlencoded({extended:true}));
@@ -24,7 +26,7 @@ app.use(express.json());
 //session setup
 app.use(
   session({
-  secret: 's3cur3S3ss10nS3cr3t',
+  secret: process.env.SESSION_KEY,
   resave: false,
   saveUninitialized: true,
   cookie: { 
@@ -39,11 +41,11 @@ app.use(passport.session());
 
 //database connection setup
 const pool = new pg.Pool({
-  user: 'postgres',
-  host: 'localhost',
-  database: 'inventory',
-  password: 'cenation!!',
-  port: 5432,
+  user: process.env.PG_USER,
+  host: process.env.PG_HOST,
+  database: process.env.PG_DATABASE,
+  password: process.env.PG_PASSWORD,
+  port: process.env.PG_PORT,
   max: 20, // maximum number of connections in the pool
   idleTimeoutMillis: 30000, // how long a connection can be idle before being closed
   connectionTimeoutMillis: 2000, // how long to wait when establishing a new connection
@@ -101,6 +103,7 @@ app.get("/", async (req,res) => {
   try {
     res.render("index.ejs", {
         carBrands:  carBrands.map(row => row.brand),
+        userlogged:req.user
     });
   } catch (error) {
     console.error('error3:', error.message);
@@ -116,6 +119,7 @@ app.get("/inventory.page",async (req,res) => {
     res.render("inventory.ejs",{
       inventory,
       carBrands:  carBrands.map(row => row.brand),
+      userlogged:req.user
     });  
   } catch (error) {
     console.error('error4:', error.message);
@@ -169,6 +173,7 @@ app.get("/my-cars", async (req, res) => {
   res.render("inventory.ejs", {
     inventory,
     carBrands:  carBrands.map(row => row.brand),
+    userlogged:req.user
   });
 
   } else {
@@ -189,6 +194,7 @@ app.get("/search/:brand", async (req, res) => {
     res.render("inventory.ejs", {
       inventory,
       carBrands:  carBrands.map(row => row.brand),
+      userlogged:req.user
     });
 
   } catch (error) {
@@ -209,6 +215,7 @@ app.get("/search/:brand/:model", async (req, res) => {
     res.render("inventory.ejs", {
       inventory,
       carBrands:  carBrands.map(row => row.brand),  
+      userlogged:req.user
     })
   } catch (error) {
     console.error('error8:', error.message);
@@ -228,6 +235,7 @@ app.get("/search/:brand/:model/:year", async (req, res) => {
     res.render("inventory.ejs", {
       inventory,
       carBrands:  carBrands.map(row => row.brand),
+      userlogged:req.user
     })
   } catch (error) {
     console.error('error9:', error.message);
@@ -299,7 +307,7 @@ app.post("/login",async (req, res, next) => {
     }
     if (!user) {
       return res.render("login.ejs", {
-        error: "Invalid Username or Password",
+        error: "Invalid Username or Password please try again",
       })    
     }
     req.logIn(user, (err) => {
@@ -310,6 +318,7 @@ app.post("/login",async (req, res, next) => {
         user: req.user.username,
         text:"logged in",
         carBrands: carBrands.map(row => row.brand),
+        userlogged:req.user
       });
     })
     })(req, res, next);
@@ -320,7 +329,9 @@ app.post("/login",async (req, res, next) => {
 //rendering sell page
 app.get("/sell.page", (req,res) => {
   if (req.isAuthenticated()) {
-    res.render("sell.ejs");
+    res.render("sell.ejs", {
+      userlogged:req.user
+    });
   } else {
     res.redirect("/login");
   }
@@ -374,9 +385,12 @@ app.post("/submit", upload, async (req,res) => {
 
 app.get('/logout', (req, res) => {
   req.logout(req.user, (err) => {
-    console.log(err);
+    if (err) {
+      console.log(err);
+    } else {
+      res.redirect('/');
+    }
   });
-  res.redirect('/');
 });
 
 

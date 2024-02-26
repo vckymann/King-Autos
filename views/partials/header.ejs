@@ -24,5 +24,9 @@
     <a class="w-[100%]" href="#"><button class="w-[100%] text-[1rem] sm:text-[1.3rem] md:text-[2rem] btn">Wheels</button></a>
     <a class="w-[100%]" href="/inventory.page"><button class="w-[100%] text-[1rem] sm:text-[1.3rem] md:text-[2rem] btn">Inventory</button></a>
     <a class="w-[100%]" href="/sell.page"><button class="text-nowrap w-[100%] text-[1rem] sm:text-[1.3rem] md:text-[2rem] btn">Sell Your Car</button></a>
-    <a class="w-[100%] col-span-2" href="/logout"><button class="w-[100%] col-span-2 text-[1rem] sm:text-[1.3rem] md:text-[2rem] btn">Log out</button></a>
+    <% if (locals.userlogged !== undefined) { %>
+        <a class="w-[100%] col-span-2" href="/logout"><button class="w-[100%] col-span-2 text-[1rem] sm:text-[1.3rem] md:text-[2rem] btn">Log out</button></a>
+    <% } else { %>
+         <a href="/"></a>
+    <% }%>
 </div>

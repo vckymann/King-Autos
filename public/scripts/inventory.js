@@ -77,7 +77,6 @@ document.getElementById("model").addEventListener("change", (e) => {
     });
 
 function updateFormAction() {
-    console.log(form);
     let brand = brandSelect.value;
     let model = modelSelect.value;
     let year = yearSelect.value;

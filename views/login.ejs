@@ -50,6 +50,7 @@
               <input type="submit" value="Login">
             </div>
             <div class="signup-link">Not a member? <a href="">Signup now</a></div>
+            <% if (locals.error) { %><p class="error text-center"><%= error %></p><% } %>
           </form>
           <form action="/register" method="post" class="signup">
             <div class="field">

@@ -17,9 +17,13 @@ html,body{
   background: #099e66;
   color: #fff;
 }
+.error {
+  color: red;
+}
 .wrapper{
   overflow: hidden;
-  max-width: 390px;
+  max-width: 490px;
+  min-height: 600px!important;
   background: #fff;
   padding: 30px;
   border-radius: 15px;
