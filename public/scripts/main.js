@@ -8,7 +8,6 @@ menu_btn.addEventListener(`click`,() => {
     body.classList.toggle(`is-active`);
     menu_btn.classList.toggle(`is-active`);
     mob_page.classList.toggle(`is-active`);
-    mob_links.classList.toggle(`is-active`);
     header.classList.toggle(`is-active`);
 });
 

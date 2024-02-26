@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sell Your Car</title>
-    <link rel="stylesheet" href="../src/output.css">
-    <link rel="stylesheet" href="../src/custom.css">
+    <link rel="stylesheet" href="/src/custom.css">
+    <link rel="stylesheet" href="/src/output.css">
     <style>
         ::-webkit-scrollbar {
             display: none;
@@ -20,35 +20,35 @@
 <body class="font-poppins p-2">
     <%- include('partials/header.ejs') %>
     <div class="flex flex-col lg:flex-row lg:justify-center gap-x-4 mb-10 mt-5">
-        <form class="bg-black border-4 border-[#ffd71b] font-semibold p-8 flex flex-col justify-start" method="post" action="/submit" enctype="multipart/form-data">
+        <form class="bg-black border-2 border-[#099e66] font-semibold p-8 flex flex-col justify-start" method="post" action="/submit" enctype="multipart/form-data">
             <div class="flex flex-col gap-y-4">
             <h2 class="font-bold text-xl text-textwhite">PERSONAL INFORMATION</h2>
-            <div class="border-[#ffd71b] border p-3 py-5 grid gap-y-8 sm:grid-cols-2 sm:grid-rows-2 sm:gap-x-5 text-[#ffd71b]">
+            <div class="border-[#099e66] border p-3 py-5 grid gap-y-8 sm:grid-cols-2 sm:grid-rows-2 sm:gap-x-5 text-[#099e66]">
                 <label for="fname">First Name (Required)<input required name="fname" placeholder="  First Name" class="text-black ps-1 py-1 mt-2 w-[100%]" id="fname" type="text"></label>
                 <label for="lname">Last Name (Required) <input required name="lname" placeholder="  Last Name" class="text-black ps-1 py-1 mt-2 w-[100%]" id="lname" type="text"></label>
-                <label for="email">Email (Required)     <input required name="email" placeholder="  Email Address" class="text-black ps-1 py-1 mt-2 w-[100%]" id="email" type="email" autocomplete="email"></label>
+                <label for="price">Price (Required)     <input required name="price" placeholder="  Selling Price" class="text-black ps-1 py-1 mt-2 w-[100%]" id="price" type="number" autocomplete="off"></label>
                 <label for="number">Ph-Number (Required)<input required name="number" placeholder="  Phone Number" class="text-black ps-1 py-1 mt-2 w-[100%]"  id="number" type="number"></label>
             </div>
             <h2 class="font-bold text-xl text-textwhite">VEHICLE INFORMATION</h2>
-            <div class="border-[#ffd71b] border p-3 py-5 grid gap-y-8 sm:grid-cols-2 sm:grid-rows-2 sm:gap-x-5 text-[#ffd71b]">
+            <div class="border-[#099e66] border p-3 py-5 grid gap-y-8 sm:grid-cols-2 sm:grid-rows-2 sm:gap-x-5 text-[#099e66]">
                 <label for="year">Year (Required)<input required placeholder="  Year"  class="text-black ps-1 py-1 mt-2 w-[100%]"  name="year"  id="year" type="number"></label>
                 <label for="brand">Brand (Required)<input required placeholder="  Brand"  class="text-black ps-1 py-1 mt-2 w-[100%]"  name="brand"  id="brand" type="text"></label>
                 <label for="model">Model (Required)<input required placeholder="  Car-Model" class="text-black ps-1 py-1 mt-2 w-[100%]" name="model"   id="model" type="text"></label>
                 <label for="vin">vin<input required placeholder="  Vin" class="text-black ps-1 py-1 mt-2 w-[100%]"  id="vin"  name="vin"  type="text"></label>
             </div>
             <h2 class="font-bold text-xl text-textwhite">CAR IMAGE</h2>
-            <div class="border-[#ffd71b] border px-0 lg:px-10 py-2 flex justify-center">
+            <div class="border-[#099e66] border px-0 lg:px-10 py-2 flex justify-center">
                 <% if (locals.error) { %>
                   <span><%= error %></span>  
                 <% } else { %>
                     <span></span>
                 <% } %>
-                <label class="ps-24" for="img1"><input id="img1" class="ps-1 py-1 mt-2 w-[100%] text-[#ffd71b]" name="img1" type="file"></label>
+                <label class="ps-24" for="img1"><input id="img1" class="ps-1 py-1 mt-2 w-[100%] text-[#099e66]" name="img1" type="file"></label>
             </div>
             </div>
-            <button class="bg-[#ffd71b] py-2 text-xl px-3 rounded mt-4" type="submit" value="submit">Submit</button>
+            <button class="bg-transparent border-2 border-[#099e66] transition-all duration-200 hover:bg-[#099e66] py-2 text-xl text-textwhite px-3 rounded mt-4" type="submit" value="submit">Submit</button>
         </form>
-        <div class="border-4 border-black mt-4 lg:mt-0 pt-8 mb-1 pb-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-y-8 bg-[#ffd71b] p-4 sm:px-10 lg:px-6 font-medium">
+        <div class="border-2 border-[#099e66] text-textwhite mt-4 lg:mt-0 pt-8 mb-1 pb-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-y-8 bg-[#000000c7] p-4 sm:px-10 lg:px-6 font-medium">
             <div class="flex flex-col gap-y-2">
                 <h2 class="my-1 font-bold">CONTACT INFORMATION:</h2>
                 <p>PHONE 5487942221</p>

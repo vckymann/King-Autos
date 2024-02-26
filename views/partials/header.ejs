@@ -4,16 +4,25 @@
             <img class="fill-white" width="45" src="/images/icons8-crown-50.png" alt="King Automobiles logo">
         </div> 
         </div>
+        <% if (locals.user && locals.text) { %>
+            <p class="text-center hid text-xl text-textwhite bg-transparent"><%= user %> <%= text %></p>
+            <script>
+                setTimeout(() => {
+                    document.querySelector('.hid').classList.add('hidden');
+                }, 2000)
+            </script>
+    <% } %>
         <button class="hamburger">
             <div class="bar"></div>
         </button>
     
 </header>
 <div class="mob-page">
-    <a class="mob-links" href="/">Home</a>
-    <a class="mob-links" href="#about">About Us</a>
-    <a class="mob-links" href="#repair">Repair</a>
-    <a class="mob-links" href="#wheels">Wheels</a>
-    <a class="mob-links" href="/inventory.page">Inventory</a>
-    <a class="mob-links" href="/sell.page">Sell Your Car</a>
+    <a class="w-[100%]" href="/"><button class="w-[100%] text-[1rem] sm:text-[1.3rem] md:text-[2rem] btn">Home</button></a>
+    <a class="w-[100%]" href="#"><button class="w-[100%] text-[1rem] sm:text-[1.3rem] md:text-[2rem] btn">About</button></a>
+    <a class="w-[100%]" href="#"><button class="w-[100%] text-[1rem] sm:text-[1.3rem] md:text-[2rem] btn">Repair</button></a>
+    <a class="w-[100%]" href="#"><button class="w-[100%] text-[1rem] sm:text-[1.3rem] md:text-[2rem] btn">Wheels</button></a>
+    <a class="w-[100%]" href="/inventory.page"><button class="w-[100%] text-[1rem] sm:text-[1.3rem] md:text-[2rem] btn">Inventory</button></a>
+    <a class="w-[100%]" href="/sell.page"><button class="text-nowrap w-[100%] text-[1rem] sm:text-[1.3rem] md:text-[2rem] btn">Sell Your Car</button></a>
+    <a class="w-[100%] col-span-2" href="/logout"><button class="w-[100%] col-span-2 text-[1rem] sm:text-[1.3rem] md:text-[2rem] btn">Log out</button></a>
 </div>

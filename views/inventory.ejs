@@ -4,16 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inventory</title>
-    <link rel="stylesheet" href="/src/output.css">
     <link rel="stylesheet" href="/src/custom.css">
+    <link rel="stylesheet" href="/src/output.css">
     <link rel="stylesheet" href="/src/inventory.css">
 </head>
 <body class="bg-black text-textwhite font-poppins p-2">
      <%- include('partials/header.ejs') %> <!--header partial -->
     <div class="flex flex-col gap-4 pt-2 max-w-[133rem] mx-auto lg:flex-row">
-        <div class="bg-gray-200 h-[26rem] w-[95%] mx-auto pt-3 px-2 rounded-sm lg:w-80 lg:ms-9">
+        <div class="bg-[#0000007d] h-[26rem] w-[95%] mx-auto border-2 border-[#099e66] pt-3 px-2 rounded-sm lg:w-80 lg:ms-9">
             <form id="filter" class="text-textblack">
-                <select id="brand" class="w-[100%] mt-2 py-4 md:py-3 bg-gray-400 rounded-sm px-2 " name="brand" required>
+                <select id="brand" class="w-[100%] mt-2 py-4 md:py-3 bg-gray-400 rounded-sm px-2 cursor-pointer" name="brand" required>
                     <option value="">Any Brand</option>
 
                     <!--populating all the brand names in the dropdown -->
@@ -21,27 +21,30 @@
                         <option value="<%= brand %>"><%= brand %></option> 
                        <% }) %>                    
                 </select>
-                <select id="model" class="w-[100%] mt-2 py-4 md:py-3 bg-gray-400 rounded-sm px-2" name="model">
+                <select id="model" class="w-[100%] mt-2 py-4 md:py-3 bg-gray-400 rounded-sm px-2 cursor-pointer" name="model">
                     <option value="">Any Model</option>
                 </select>
-                <select id="year" class="w-[100%] mt-2 py-4 md:py-3 bg-gray-400 rounded-sm px-2" name="Year">
+                <select id="year" class="w-[100%] mt-2 py-4 md:py-3 bg-gray-400 rounded-sm px-2 cursor-pointer" name="Year">
                     <option value="">Any Year</option>
                 </select>                
-                <button type="submit" class="w-[100%] mt-2 py-3 bg-primary font-bold rounded-sm px-2 hover:bg-black hover:text-textwhite active:opacity-80">Search</button>
+                <button type="submit" class="w-[100%] mt-2 py-3 bg-[black] font-bold rounded-sm px-2 hover:bg-primary text-textwhite active:opacity-80 border-2 border-[#099e66]">Search</button>
             </form>
-            <h2 class="font-bold text-textblack text-center pt-5">Inventory<span class="font-normal block pt-2"><%= inventory.length %> Vehicles</span></h2>
-            <h2 class="font-bold text-textblack text-center pt-5"><a href="/inventory.page">Refresh</a></h2>
+            <h2 class="font-bold text-textwhite text-center pt-5">Inventory<span class="font-normal block pt-2"><%= inventory.length %> Vehicles</span></h2>
+            <div class="flex justify-between lg:gap-2">
+                <a  href="/inventory.page"><button class="px-4 sm:px-16 lg:px-6 py-3 mt-2 bg-[black] font-bold rounded-sm hover:bg-primary text-textwhite active:opacity-80 border-2 border-[#099e66]">Refresh</button></a>
+                <a  href="/my-cars"><button class="px-4 sm:px-16 lg:px-6 py-3 mt-2 bg-[black] font-bold rounded-sm hover:bg-primary text-textwhite active:opacity-80 border-2 border-[#099e66] text-nowrap">My Cars</button></a>
+            </div>
         </div>
             <main>
                 <div class="js grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-3 mx-7 lg:ms-0 lg:grid-cols-3 2xl:grid-cols-4">
                     <!-- displaying all the cars in the inventory -->
                     <% if (locals.inventory) { %>
                         <% inventory.forEach(car => { %>
-                            <div class="card max-w-[540px]">
+                            <div class="card max-w-[540px] border-2 border-[#099e66]">
                                 <div class="top-section">
                                     <div class="border"></div>
                                     <a href="/car-details/<%= car.id  %>">
-                                        <img class="pt-6" src="<%= car["img_path1"]  %>" alt="">
+                                        <img class="pt-6 hover:scale-105 transition-all duration-300" src="<%= car["img_path1"]  %>" alt="">
                                     </a>
                                 <div class="icons">
                                     <div class="logo">
@@ -75,16 +78,16 @@
                                 <span class="title"><%= car.brand  %></span>
                                 <div class="row row1">
                                     <div class="item">
-                                        <a href="/car-details/<%= car.id  %>"><button class="bg-[#ffd71b] py-2 px-4 rounded-md hover:bg-black hover:text-textwhite active:opacity-75">View Details</button></a>
+                                        <a href="/car-details/<%= car.id  %>"><button class="bg-[#00000075] py-2 px-4 rounded-md hover:bg-primary text-textwhite border-2 border-[#099e66] active:opacity-75">View Details</button></a>
                                     </div>
                                     <div class="item">
-                                        <a href="/contact-us"><button class="bg-[#ffd71b] py-2 px-4 rounded-md hover:bg-black hover:text-textwhite active:opacity-75">Contact Us</button></a>
+                                        <a href="/contact-us"><button class="bg-[#00000075] py-2 px-4 rounded-md hover:bg-primary text-textwhite active:opacity-75 border-2 border-[#099e66]">Contact Us</button></a>
                                     </div>
                                     </div>
-                                    <div class="flex justify-evenly gap-x-4 px-2 pt-12 pb-4">
+                                    <div class="flex justify-evenly gap-x-4 px-2 pt-8 pb-4 text-textwhite">
                                         <div>
                                             <p class="text-center font-semibold">Price</p>
-                                            <p class="font-medium">$50,000</p>
+                                            <p class="font-medium">$<%= car.price  %></p>
                                         </div>
                                         <div>
                                             <p class="font-semibold">Year</p>

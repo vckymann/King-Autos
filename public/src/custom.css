@@ -1,5 +1,5 @@
 :root {
-    --color-primary:#FFD71B;
+    --color-primary:#099e66;
     --color-textwhite:white;
     --color-textblack:black;
     --color-secondary:black;
@@ -54,8 +54,8 @@ header {
     align-items: center;
     justify-content: space-between;
     z-index: 20;
-    border-top: 1px solid #ffd71b;
-    border-bottom: 1px solid #ffd71b;
+    border-top: 1px solid #099e66;
+    border-bottom: 1px solid #099e66;
 }
 @media (min-width:900px) {
 
@@ -150,28 +150,139 @@ body.is-active {
 }
 
 .mob-page {
-    display: flex;
-    gap: 2.2rem;
-    justify-content:center;
-    flex-direction: column;
-    align-items: center;
     z-index: 10!important;
+    display: grid;
+    grid-template-columns: minmax(1rem,20rem) minmax(1rem,20rem);
+    grid-template-rows: 5rem 5rem 5rem 5rem;
+    place-content: center;
+    gap: clamp(1rem,1.5vw,2.5rem);
+    padding-left: 1rem;
+    padding-right: 1rem;
 }
 
 .mob-links {
-    margin-top: 1rem;
     color: var(--color-textwhite);
-    font-size: 2rem;
-    text-decoration: none;
 }
-.mob-links:first-of-type {
-    margin-top: 3rem;
-}
-.mob-links:hover {
-    color: var(--color-primary);
-    text-decoration: underline;
-    text-underline-offset: 0.8rem;
-}
+
+.btn {
+    --border-color: white;
+    --border-width: .125em;
+    --curve-size: .5em;
+    --blur: 30px;
+    --bg:black;
+    --color: white;
+    color: var(--color);
+      /* use position: relative; so that BG is only for .btn */
+    position: relative;
+    isolation: isolate;
+    display: inline-grid;
+    place-content: center;
+    padding: .5em 1.5em;
+    font-size: 17px;
+    border: 0;
+    text-transform: uppercase;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, .6);
+    clip-path: polygon(
+              /* Top-left */
+              0% var(--curve-size),
+  
+              var(--curve-size) 0,
+              /* top-right */
+              100% 0,
+              100% calc(100% - var(--curve-size)),
+  
+              /* bottom-right 1 */
+              calc(100% - var(--curve-size)) 100%,
+              /* bottom-right 2 */
+              0 100%);
+    transition: color 250ms;
+  }
+  
+  .btn::after,
+  .btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+  }
+  
+  .btn::before {
+    background: #099e66;
+    background-size: 300% 300%;
+    animation: move-bg7234 5s ease infinite;
+    z-index: -2;
+  }
+  
+  @keyframes move-bg7234 {
+    0% {
+      background-position: 31% 0%
+    }
+  
+    50% {
+      background-position: 70% 100%
+    }
+  
+    100% {
+      background-position: 31% 0%
+    }
+  }
+  
+  .btn::after {
+    background: var(--bg);
+    z-index: -1;
+    clip-path: polygon(
+              /* Top-left */
+              var(--border-width) 
+              calc(var(--curve-size) + var(--border-width) * .5),
+  
+              calc(var(--curve-size) + var(--border-width) * .5) var(--border-width),
+  
+              /* top-right */
+              calc(100% - var(--border-width)) 
+              var(--border-width),
+  
+              calc(100% - var(--border-width)) 
+              calc(100% - calc(var(--curve-size) + var(--border-width) * .5)),
+  
+              /* bottom-right 1 */
+              calc(100% - calc(var(--curve-size) + var(--border-width) * .5)) calc(100% - var(--border-width)),
+              /* bottom-right 2 */
+              var(--border-width) calc(100% - var(--border-width)));
+    transition: clip-path 500ms;
+  }
+  
+  .btn:where(:hover, :focus)::after {
+    clip-path: polygon(
+                  /* Top-left */
+                  calc(100% - var(--border-width)) 
+  
+                  calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5)),
+      
+                  calc(100% - var(--border-width))
+  
+                  var(--border-width),
+      
+                  /* top-right */
+                  calc(100% - var(--border-width))
+  
+                   var(--border-width),
+      
+                  calc(100% - var(--border-width)) 
+  
+                  calc(100% - calc(var(--curve-size) + var(--border-width) * .5)),
+      
+                  /* bottom-right 1 */
+                  calc(100% - calc(var(--curve-size) + var(--border-width) * .5)) 
+                  calc(100% - var(--border-width)),
+  
+                  /* bottom-right 2 */
+                  calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5))
+                  calc(100% - var(--border-width)));
+    transition: 200ms;
+  }
+  
+  .btn:where(:hover, :focus) {
+    color: var(--color);
+  }
 
 .cssbuttons-io-button {
     background: var(--color-primary);
@@ -374,7 +485,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     color: var(--color-textblack);
 }
 .car-names button:hover {
-    background-color: rgb(178, 167, 167);
+    background-color: #e8dede;
     transition: all 0.15s;
     cursor: pointer;
 }
@@ -491,3 +602,129 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     transform: translateY(0px);
     opacity: 1;
 }
+
+/*inventory page*/
+.card {
+    color:black;
+    border-radius: 8px;
+    background-color: rgba(0, 0, 0, 0.277);
+    padding: 12px;
+    overflow: hidden;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 20px 0px;
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+  
+  .card .top-section {
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(45deg, rgba(52, 51, 51, 0.662) 0%, rgba(159, 158, 158, 0.574) 100%);
+    position: relative;
+    min-height: 228px;
+  }
+  
+  .card .top-section .border {
+    border-bottom-right-radius: 10px;
+    height: 30px;
+    width: 130px;
+    background: white;
+    background: #099e66;
+    position: relative;
+    transform: skew(-40deg);
+    box-shadow: -10px -10px 0 0 black;
+  }
+  
+  .card .top-section .border::before {
+    content: "";
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    top: 0;
+    right: -15px;
+    background: rgba(255, 255, 255, 0);
+    border-top-left-radius: 10px;
+  }
+  
+  .card .top-section::before {
+    content: "";
+    position: absolute;
+    top: 30px;
+    left: 0;
+    background: rgba(255, 255,255, 0);
+    height: 15px;
+    width: 15px;
+    border-top-left-radius: 15px;
+  }
+  
+  .card .top-section .icons {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 30px;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .card .top-section .icons .logo {
+    height: 100%;
+    aspect-ratio: 1;
+    padding: 7px 0 7px 15px;
+  }
+  
+  .card .top-section .icons .logo .top-section {
+    height: 100%;
+  }
+  
+  .card .top-section .icons .social-media {
+    height: 100%;
+    padding: 8px 15px;
+    display: flex;
+    gap: 7px;
+  }
+  
+  .card .top-section .icons .social-media .svg:hover {
+    stroke: #099e66;
+    fill: transparent;
+  }
+  
+  
+  .card .bottom-section {
+    margin-top: 15px;
+  }
+  
+  .card .bottom-section .title {
+    display: block;
+    font-size: 17px;
+    font-weight: bolder;
+    color: white;
+    text-align: center;
+  }
+  
+  .card .bottom-section .row {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .card .bottom-section .row .item {
+    padding: 5px;
+    text-align: center;
+    text-wrap: nowrap;
+    color: white;
+    font-weight:600;
+  }
+  
+  .card .bottom-section .row .item .big-text {
+    font-size: 12px;
+    display: block;
+  }
+  
+  .card .bottom-section .row .item .regular-text {
+    font-size: 9px;
+    color: white;
+    font-weight: 600;
+  }
+  
+  .card .bottom-section .row .item:nth-child(2) {
+    border-left: 2px solid #099e66;
+  }
