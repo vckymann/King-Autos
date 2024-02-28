@@ -9,6 +9,7 @@ import session from "express-session";
 import passport from "passport";
 import { Strategy } from "passport-local";
 import env from "dotenv";
+import GoogleStrategy from "passport-google-oauth2";
 
 //initializing
 const app = express();
@@ -85,7 +86,7 @@ async function queryDB(query, values = []) {
 const brandQuery = `SELECT DISTINCT brand FROM cars;`;
 const carBrands = await queryDB(brandQuery);
 
-//function for loading inventory data
+//function for loading full inventory
 async function loadData () {
   try {
     const query = `SELECT cars.*, car_sellers.first_name, car_sellers.last_name , car_sellers.phone_number, images.img_path1 FROM cars JOIN car_sellers ON cars.car_seller_id = car_sellers.id JOIN images ON cars.image_id = images.id ORDER BY cars.id DESC;`
@@ -113,9 +114,7 @@ app.get("/", async (req,res) => {
 //rendering inventory-page
 app.get("/inventory.page",async (req,res) => {
   try { 
-    const [inventory] = await Promise.all([
-      loadData(),
-    ]);
+    const inventory = await loadData();
     res.render("inventory.ejs",{
       inventory,
       carBrands:  carBrands.map(row => row.brand),
@@ -158,23 +157,30 @@ app.post("/years", async (req,res) => {
 
 //handling search-inventory requests
 app.get("/my-cars", async (req, res) => {
-
   if (req.isAuthenticated()) {
+
   const idQuery = "SELECT id FROM car_sellers WHERE user_id = $1;" //getting car_seller_id of the logged in user
-  const car_seller = await queryDB(idQuery,[req.user.id]);
-  const car_seller_id = car_seller[0].id;
+  let car_seller = await queryDB(idQuery,[req.user.id]);
+    if (car_seller.length === 0) {
+      res.render("inventory.ejs", {
+        noCars: true,
+        carBrands:  carBrands.map(row => row.brand),
+        userlogged:req.user
+      });
 
-  const myCarsQuery = "SELECT cars.*, images.img_path1 FROM cars JOIN images ON cars.image_id = images.id WHERE car_seller_id = $1;" //query for rendering inventory with cars of the logged user
+    } else {
+      const car_seller_id = car_seller[0].id;
+      const myCarsQuery = "SELECT cars.*, images.img_path1 FROM cars JOIN images ON cars.image_id = images.id WHERE car_seller_id = $1;" //query for rendering inventory with cars of the logged user
+    
+      const inventory = await queryDB(myCarsQuery, [car_seller_id]);//filtering inventory with cars of the logged user along with all carBrands 
+    
+      res.render("inventory.ejs", {
+        inventory,
+        carBrands:carBrands.map(row => row.brand),
+        userlogged:req.user
+      });
+    }
 
-  const [ inventory] = await Promise.all([ //filtering inventory with cars of the logged user along with all carBrands
-    (await queryDB(myCarsQuery, [car_seller_id])),
-  ]);
-
-  res.render("inventory.ejs", {
-    inventory,
-    carBrands:  carBrands.map(row => row.brand),
-    userlogged:req.user
-  });
 
   } else {
     res.redirect("/login");
@@ -187,9 +193,7 @@ app.get("/search/:brand", async (req, res) => {
   
     const query = `SELECT cars.*, images.img_path1 FROM images JOIN cars ON cars.image_id = images.id WHERE brand = $1;`;
 
-    const [ inventory] = await Promise.all([
-      (await queryDB(query, [brand])), //result.rows
-    ]);
+    const inventory = await queryDB(query, [brand]); //result.rows
 
     res.render("inventory.ejs", {
       inventory,
@@ -208,9 +212,7 @@ app.get("/search/:brand/:model", async (req, res) => {
     const { brand, model } = req.params;
   
     const query = `SELECT cars.*, images.img_path1 FROM images JOIN cars ON cars.image_id = images.id WHERE brand = $1 AND model = $2;`;
-    const [ inventory] = await Promise.all([
-      (await queryDB(query, [brand, model])), //result.rows
-    ]);
+    const inventory = await queryDB(query, [brand, model]); //result.rows
 
     res.render("inventory.ejs", {
       inventory,
@@ -228,9 +230,7 @@ app.get("/search/:brand/:model/:year", async (req, res) => {
     const { brand, model, year } = req.params;
   
     const query = `SELECT cars.*, images.img_path1 FROM images JOIN cars ON cars.image_id = images.id WHERE brand = $1 AND model = $2 AND year = $3;`;
-    const [ inventory] = await Promise.all([
-      (await queryDB(query, [brand, model, year])), //result.rows
-    ]);
+    const inventory = await queryDB(query, [brand, model, year]) //result.rows
 
     res.render("inventory.ejs", {
       inventory,
@@ -259,6 +259,15 @@ app.get("/car-details/:id", async (req,res) => {
   }
 });
 
+app.get('/auth/google', passport.authenticate('google', 
+{ scope: ['profile', 'email'] }
+));
+
+app.get('/auth/google/secrets', passport.authenticate('google', {
+  failureRedirect: '/login',
+  successRedirect: '/',
+}));
+
 app.get("/register", (req,res) => {
   res.render("register.ejs");
 });
@@ -271,7 +280,9 @@ app.post("/register", async (req,res) => {
     const checkUser = await queryDB('SELECT * FROM users WHERE username = ($1)', [username]);
     if (checkUser.length > 0) {
       res.send("User already exists please login");
+
     } else {
+
       bcrypt.hash(password, saltRounds, async (err, hash) => {
         if (err) {
           console.log("Error hashing password", err);
@@ -310,10 +321,18 @@ app.post("/login",async (req, res, next) => {
         error: "Invalid Username or Password please try again",
       })    
     }
-    req.logIn(user, (err) => {
+    req.logIn(user,async (err) => {
       if (err) {
         return next(err);
       }
+
+      const sellerQuery = 'SELECT * FROM car_sellers WHERE user_id = ($1)';
+      const sellerResult = await queryDB(sellerQuery, [user.id]);
+
+      if (sellerResult.length === 0) {
+        await queryDB('INSERT INTO car_sellers (user_id) VALUES ($1)', [user.id]);
+      }
+
       return res.render("index.ejs", {
         user: req.user.username,
         text:"logged in",
@@ -364,7 +383,6 @@ app.post("/submit", upload, async (req,res) => {
     try {
       const user = await queryDB('SELECT id FROM users WHERE username = ($1)', [req.user.username]);
       const user_id = user[0].id;
-      console.log(user_id);
 
       const updateQuery1 = `UPDATE car_sellers SET first_name = $1, last_name = $2, phone_number = $3 WHERE user_id = $4 RETURNING id;`; 
       const id = await queryDB(updateQuery1,[oldcar.fname,oldcar.lname,oldcar.number,user_id]);
@@ -393,6 +411,27 @@ app.get('/logout', (req, res) => {
   });
 });
 
+
+passport.use("google", new GoogleStrategy({
+  clientID:process.env.CLIENT_ID,
+  clientSecret:process.env.CLIENT_SECRET,
+  callbackURL:"http://localhost:3000/auth/google/secrets",
+  userProfileURL:"https://www.googleapis.com/oauth2/v3/userinfo",
+}, async(accessToken, refreshToken, profile, cb) => {
+  try {
+    const result = await queryDB('SELECT * FROM users WHERE username = ($1)', [profile.email]);
+    if (result.length === 0) {
+      const newUser = await queryDB('INSERT INTO users (username, password) VALUES ($1, $2) RETURNING *', [profile.email, "google"]);
+
+      await queryDB('INSERT INTO car_sellers (user_id) VALUES ($1)', [newUser[0].id]);
+      cb(null, newUser);//null for no errors and pass user into that callback
+    } else {
+      cb(null, result[0]);//null for no errors and pass user into that callback
+      }
+  } catch (error) {
+    cb(error);//pass error into that callback
+  }
+}))
 
 passport.use(
   new Strategy(

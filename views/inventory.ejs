@@ -9,8 +9,8 @@
 </head>
 <body class="bg-black text-textwhite font-poppins p-2">
      <%- include('partials/header.ejs') %> <!--header partial -->
-    <div class="flex flex-col gap-4 pt-2 max-w-[133rem] mx-auto lg:flex-row">
-        <div class="bg-[#0000007d] h-[26rem] w-[95%] mx-auto border-2 border-[#099e66] pt-3 px-2 rounded-sm lg:w-80 lg:ms-9">
+    <div class="flex flex-col gap-4 pt-2 max-w-[133rem] mx-auto lg:-mx-2 lg:flex-row">
+        <div class="bg-[#0000007d] h-[26rem] w-[95%] mx-auto lg:mx-0 border-2 border-[#099e66] pt-3 px-2 rounded-sm lg:w-80 lg:ms-9">
             <form id="filter" class="text-textblack">
                 <select id="brand" class="w-[100%] mt-2 py-4 md:py-3 bg-gray-400 rounded-sm px-2 cursor-pointer" name="brand" required>
                     <option value="">Any Brand</option>
@@ -28,16 +28,20 @@
                 </select>                
                 <button type="submit" class="w-[100%] mt-2 py-3 bg-[black] font-bold rounded-sm px-2 hover:bg-primary text-textwhite active:opacity-80 border-2 border-[#099e66]">Search</button>
             </form>
-            <h2 class="font-bold text-textwhite text-center pt-5">Inventory<span class="font-normal block pt-2"><%= inventory.length %> Vehicles</span></h2>
+            <% if (locals.inventory) { %>
+                <h2 class="font-bold text-textwhite text-center pt-5">Inventory<span class="font-normal block pt-2"><%= inventory.length %> Vehicles</span></h2>
+            <% } else { %>
+                <h2 class="font-bold text-textwhite text-center pt-5">Inventory<span class="font-normal block pt-2">0 Vehicles</span></h2>
+              <%  }%>
             <div class="flex justify-between lg:gap-2">
                 <a  href="/inventory.page"><button class="px-4 sm:px-16 lg:px-6 py-3 mt-2 bg-[black] font-bold rounded-sm hover:bg-primary text-textwhite active:opacity-80 border-2 border-[#099e66]">Refresh</button></a>
                 <a  href="/my-cars"><button class="px-4 sm:px-16 lg:px-6 py-3 mt-2 bg-[black] font-bold rounded-sm hover:bg-primary text-textwhite active:opacity-80 border-2 border-[#099e66] text-nowrap">My Cars</button></a>
             </div>
         </div>
-            <main>
+            <main class="w-[100%]">
+                <% if (locals.inventory) { %>
                 <div class="js grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-3 mx-7 lg:ms-0 lg:grid-cols-3 2xl:grid-cols-4">
                     <!-- displaying all the cars in the inventory -->
-                    <% if (locals.inventory) { %>
                         <% inventory.forEach(car => { %>
                             <div class="card max-w-[540px] border-2 border-[#099e66]">
                                 <div class="top-section">
@@ -100,10 +104,12 @@
                                 </div>
                                 </div>
                         <% }); %>
-                   <% } else { %>
+                    </div>
+                   <% } else if (noCars) { %>
+                        <p class="w-[100%] text-center text-red-600 text-xl">you have no car listed for selling</p>
+                    <% } else { %>
                     <p class="text-center text-textwhite">No cars found</p>
                      <%  } %>
-                </div>
             </main>
         </div>
         </body>

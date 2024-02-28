@@ -8,20 +8,7 @@
   <link rel="stylesheet" href="/src/login.css">
 </head>
 
-<body>
-
-
-    <!-- <div class="col-sm-4">
-      <div class="card">
-        <div class="card-body">
-          <a class="btn btn-block" href="/auth/google" role="button">
-            <i class="fab fa-google"></i>
-            Sign In with Google
-          </a>
-        </div>
-      </div>
-    </div> -->
-
+<body>  
     <div class="wrapper">
         <a class="text-xl no-underline hover:border-2 hover:border-black text-black px-3 transition-all duration-100" href="/">X</a>
       <div class="title-text">
@@ -51,7 +38,12 @@
             </div>
             <div class="signup-link">Not a member? <a href="">Signup now</a></div>
             <% if (locals.error) { %><p class="error text-center"><%= error %></p><% } %>
+            <button class="mx-auto px-4 py-2 m-3 border flex gap-2 rounded-lg text-primary hover:shadow transition duration-150">
+              <img class="w-6 h-6" src="https://www.svgrepo.com/show/475656/google-color.svg" loading="lazy" alt="google logo">
+              <a href="/auth/google">Login with Google</a>  
+            </button>
           </form>
+          
           <form action="/register" method="post" class="signup">
             <div class="field">
               <input type="text" placeholder="Email Address" name="username" required>
