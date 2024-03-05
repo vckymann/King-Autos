@@ -468,6 +468,6 @@ passport.deserializeUser((obj, cb) => {
 })
 
 //server start
-app.listen(port,() => {
+app.listen( process.env.PORT || port,() => {
     console.log("server started");
 });
