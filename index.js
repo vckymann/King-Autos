@@ -55,7 +55,7 @@ const pool = new pg.Pool({
 
 //multer storage setup for uploading images to server uploads folder
 const storage = multer.diskStorage({
-    destination:'./uploads',
+    destination:'/tmp/uploads',
     filename: (req,file,cb) => {
         cb(null,file.originalname);
     }
